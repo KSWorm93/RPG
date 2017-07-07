@@ -6,9 +6,6 @@
 package runner;
 
 import java.util.Scanner;
-import quests.classquest.warrior.WarriorIntro;
-import quests.mainquest.Intro;
-import quests.sidequest.RandomEncounter;
 import utils.ClassHandler;
 import utils.CommandHandler;
 import utils.PrintHelper;
@@ -50,11 +47,8 @@ public class Main {
         System.out.println("You have choosen the " + myClass.getChosenClass().className() + "! Let your journey begin!");
         System.out.println("Creating your class...");
         myClass.getChosenClass().initClass();
-        
-        //TODO - move quests adding out of main
-        story.addQuest(new Intro());
-        story.addQuest(new WarriorIntro());
-        story.addQuest(new RandomEncounter());
+
+        story.initClassStoryline(myClass.getChosenClass());
 
         printer.printClassStats(myClass.getChosenClass().stats());
         printer.printClassAbilities(myClass.getChosenClass().abilities());
