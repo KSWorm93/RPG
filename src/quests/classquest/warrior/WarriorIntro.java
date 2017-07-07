@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quests.classquest;
+package quests.classquest.warrior;
 
 import enemies.IEnemy;
 import enemies.SkeletonWarrior;
@@ -49,7 +49,7 @@ public class WarriorIntro implements IQuest {
     public List<String> questDialogue() {
         List<String> dialogue = new ArrayList();
         String first = "\nIn this tutorial you will learn to fight off enemies";
-        String second = "\nYou did it! You defeated the Skeleton Warrior!" 
+        String second = "\nYou did it! You defeated the Skeleton Warrior!"
                 + "\nMove forward to exit combat";
 
         dialogue.add(first);

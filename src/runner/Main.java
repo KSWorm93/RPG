@@ -6,7 +6,7 @@
 package runner;
 
 import java.util.Scanner;
-import quests.classquest.WarriorIntro;
+import quests.classquest.warrior.WarriorIntro;
 import quests.mainquest.Intro;
 import quests.sidequest.RandomEncounter;
 import utils.ClassHandler;
