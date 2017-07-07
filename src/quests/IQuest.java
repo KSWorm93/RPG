@@ -18,4 +18,5 @@ public interface IQuest {
     public List<IEnemy> enemies();
     public List<IMove> questMoves();
     public List<String> questDialogue();
+    public IQuest questInstance();
 }

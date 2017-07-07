@@ -26,13 +26,20 @@ public class StoryHandler {
     }
 
     public void removeQuest(IQuest quest) {
-        if (!quest.questName().contains("REPEATABLE")) {
+        if (quest.questName().contains("REPEATABLE")) {
+            quests.remove(quest);
+            reAddQuest(quest);
+        } else {
             quests.remove(quest);
         }
     }
 
     public IQuest getSingleQuest(int questToGet) {
         return quests.get(questToGet);
+    }
+
+    private void reAddQuest(IQuest quest) {
+        quests.add(quest.questInstance());
     }
 
     private void initClassStoryline() {
