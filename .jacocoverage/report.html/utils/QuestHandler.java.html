@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>QuestHandler.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;RPG&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">utils</a> &gt; <span class="el_source">QuestHandler.java</span></div><h1>QuestHandler.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package utils;
+
+import character.classes.IClass;
+import enemies.IEnemy;
+import java.util.Scanner;
+import quests.IQuest;
+import quests.moves.IMove;
+
+/**
+ *
+ * @author kasper
+ */
+public class QuestHandler {
+
+    private final Scanner scan;
+<span class="fc" id="L21">    private final CommandHandler commander = new CommandHandler();</span>
+    private CombatHandler combatter;
+
+<span class="fc" id="L24">    public QuestHandler(Scanner scan) {</span>
+<span class="fc" id="L25">        this.scan = scan;</span>
+<span class="fc" id="L26">    }</span>
+
+    public void executeQuest(IQuest quest, IClass myClass) {
+<span class="fc" id="L29">        quest(quest, myClass);</span>
+<span class="fc" id="L30">    }</span>
+
+    private void quest(IQuest quest, IClass myClass) {
+<span class="fc" id="L33">        int experience = 0;</span>
+<span class="fc" id="L34">        int index = 0;</span>
+
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        for (String dialogue : quest.questDialogue()) {</span>
+<span class="fc" id="L37">            System.out.println(dialogue);</span>
+<span class="fc" id="L38">            IMove move = quest.questMoves().get(index);</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">            if (move.encounter()) {</span>
+<span class="fc" id="L40">                combatMove(quest, index, myClass);</span>
+<span class="fc" id="L41">                experience += 5;</span>
+            } else {
+<span class="fc" id="L43">                notCombatMove(move);</span>
+            }
+<span class="fc" id="L45">            experience += 10;</span>
+<span class="fc" id="L46">            index++;</span>
+<span class="fc" id="L47">        }</span>
+<span class="fc" id="L48">        questCompleted(quest);</span>
+<span class="fc" id="L49">        myClass.addReward(experience, null, null, null);</span>
+<span class="fc" id="L50">    }</span>
+
+    private void combatMove(IQuest quest, int index, IClass myClass) {
+<span class="fc" id="L53">        combatter = new CombatHandler(scan);</span>
+
+<span class="fc" id="L55">        IEnemy enemy = quest.enemies().get(index);</span>
+<span class="fc" id="L56">        System.out.println(&quot;\nThere is an enemy blocking your way&quot;</span>
+                + &quot;\nDefeat it to proceed&quot;);
+//        int dmg;
+//        dmg = enemy.hitYou();
+
+<span class="fc" id="L61">        combatter.startCombat(myClass, enemy);</span>
+<span class="fc" id="L62">    }</span>
+
+    private void notCombatMove(IMove move) {
+        String input;
+<span class="pc bpc" id="L66" title="2 of 3 branches missed.">        switch (move.numberOfMoves()) {</span>
+            case 1:
+<span class="fc" id="L68">                singleOption();</span>
+<span class="fc" id="L69">                input = scan.next();</span>
+<span class="fc" id="L70">                checkMove(input, move);</span>
+<span class="fc" id="L71">                break;</span>
+            case 2:
+<span class="nc" id="L73">                twoOptions();</span>
+<span class="nc" id="L74">                input = scan.next();</span>
+<span class="nc" id="L75">                checkMove(input, move);</span>
+<span class="nc" id="L76">                break;</span>
+            default:
+<span class="nc" id="L78">                threeOptions();</span>
+<span class="nc" id="L79">                input = scan.next();</span>
+<span class="nc" id="L80">                checkMove(input, move);</span>
+                break;
+        }
+<span class="fc" id="L83">    }</span>
+
+    private void questCompleted(IQuest quest) {
+<span class="fc" id="L86">        System.out.println(&quot;\nYou have succesfully completed: &quot;</span>
+<span class="fc" id="L87">                + quest.questName()</span>
+                + &quot;\nCongratulations. Rewards have been added to you&quot;);
+<span class="fc" id="L89">    }</span>
+
+    private void checkMove(String path, IMove returnMove) {
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">        if (commander.checkForCommand(path)) {</span>
+<span class="nc" id="L93">            commander.executeCommand(path);</span>
+<span class="nc" id="L94">            notCombatMove(returnMove);</span>
+        } else {
+<span class="fc" id="L96">            whatUserDid(path);</span>
+        }
+<span class="fc" id="L98">    }</span>
+
+    private void whatUserDid(String path) throws NumberFormatException {
+<span class="pc bpc" id="L101" title="2 of 3 branches missed.">        switch (Integer.parseInt(path)) {</span>
+            case 1:
+<span class="fc" id="L103">                System.out.println(&quot;\nYou have chosen option 1&quot;);</span>
+<span class="fc" id="L104">                break;</span>
+            case 2:
+<span class="nc" id="L106">                System.out.println(&quot;\nYou have chosen option 2&quot;);</span>
+<span class="nc" id="L107">                break;</span>
+            default:
+<span class="nc" id="L109">                System.out.println(&quot;\nYou have chosen option 3&quot;);</span>
+                break;
+        }
+<span class="fc" id="L112">    }</span>
+
+    private void singleOption() {
+<span class="fc" id="L115">        System.out.println(&quot;\nYou have the option to move forward - press 1&quot;);</span>
+<span class="fc" id="L116">    }</span>
+
+    private void twoOptions() {
+<span class="nc" id="L119">        System.out.println(&quot;\nYou have 2 options&quot;);</span>
+<span class="nc" id="L120">        System.out.println(&quot;press 1 to - Move forward&quot;);</span>
+<span class="nc" id="L121">        System.out.println(&quot;press 2 to - Turn left&quot;);</span>
+<span class="nc" id="L122">    }</span>
+
+    private void threeOptions() {
+<span class="nc" id="L125">        System.out.println(&quot;\nYou have 3 options&quot;);</span>
+<span class="nc" id="L126">        System.out.println(&quot;press 1 to - Move forward&quot;);</span>
+<span class="nc" id="L127">        System.out.println(&quot;press 2 to - Turn left&quot;);</span>
+<span class="nc" id="L128">        System.out.println(&quot;press 3 to - Turn right&quot;);</span>
+<span class="nc" id="L129">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

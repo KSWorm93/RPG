@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>WarriorIntro.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;RPG&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">quests.classquest</a> &gt; <span class="el_source">WarriorIntro.java</span></div><h1>WarriorIntro.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package quests.classquest;
+
+import enemies.IEnemy;
+import enemies.SkeletonWarrior;
+import java.util.ArrayList;
+import java.util.List;
+import quests.IQuest;
+import quests.moves.IMove;
+import quests.moves.Single;
+
+/**
+ *
+ * @author kasper
+ */
+<span class="fc" id="L20">public class WarriorIntro implements IQuest {</span>
+
+    @Override
+    public String questName() {
+<span class="fc" id="L24">        return &quot;Class tutorial for the Warrior&quot;;</span>
+    }
+
+    @Override
+    public List&lt;IEnemy&gt; enemies() {
+<span class="fc" id="L29">        List&lt;IEnemy&gt; enemies = new ArrayList();</span>
+<span class="fc" id="L30">        IEnemy skelWarrior = new SkeletonWarrior();</span>
+
+<span class="fc" id="L32">        enemies.add(skelWarrior);</span>
+
+<span class="fc" id="L34">        return enemies;</span>
+    }
+
+    @Override
+    public List&lt;IMove&gt; questMoves() {
+<span class="fc" id="L39">        List&lt;IMove&gt; moves = new ArrayList();</span>
+<span class="fc" id="L40">        IMove firstMove = new Single(true);</span>
+<span class="fc" id="L41">        IMove secondMove = new Single(false);</span>
+
+<span class="fc" id="L43">        moves.add(firstMove);</span>
+<span class="fc" id="L44">        moves.add(secondMove);</span>
+<span class="fc" id="L45">        return moves;</span>
+    }
+
+    @Override
+    public List&lt;String&gt; questDialogue() {
+<span class="fc" id="L50">        List&lt;String&gt; dialogue = new ArrayList();</span>
+<span class="fc" id="L51">        String first = &quot;\nIn this tutorial you will learn to fight off enemies&quot;;</span>
+<span class="fc" id="L52">        String second = &quot;\nYou did it! You defeated the Skeleton Warrior!&quot; </span>
+                + &quot;\nMove forward to exit combat&quot;;
+
+<span class="fc" id="L55">        dialogue.add(first);</span>
+<span class="fc" id="L56">        dialogue.add(second);</span>
+
+<span class="fc" id="L58">        return dialogue;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

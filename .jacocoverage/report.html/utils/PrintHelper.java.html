@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PrintHelper.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;RPG&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">utils</a> &gt; <span class="el_source">PrintHelper.java</span></div><h1>PrintHelper.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package utils;
+
+import character.Stat;
+import character.abilities.IAbility;
+import character.item.IItem;
+import commands.ICommand;
+import java.util.List;
+import java.util.Set;
+
+/**
+ *
+ * @author kasper
+ */
+<span class="fc" id="L19">public class PrintHelper {</span>
+
+    /**
+     * Helper method to print users stats out.
+     *
+     * @param stats list of stats
+     */
+    public void printClassStats(List&lt;Stat&gt; stats) {
+<span class="fc" id="L27">        System.out.println(&quot;\nThese are the stats for your class.&quot;);</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        for (Stat stat : stats) {</span>
+<span class="fc" id="L29">            System.out.println(stat.getStatName() + &quot;: &quot; + stat.getStatValue());</span>
+<span class="fc" id="L30">        }</span>
+<span class="fc" id="L31">    }</span>
+
+    /**
+     * Helper method to print users abilities out.
+     *
+     * @param abilities list of abilities
+     */
+    public void printClassAbilities(List&lt;IAbility&gt; abilities) {
+<span class="fc" id="L39">        System.out.println(&quot;\nThese are all your available abilities&quot;);</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        for (IAbility ability : abilities) {</span>
+<span class="fc" id="L41">            System.out.println(ability.getName() + &quot; Type: &quot; + ability.getType() + &quot; Cost: &quot; + ability.getCost());</span>
+<span class="fc" id="L42">        }</span>
+<span class="fc" id="L43">    }</span>
+
+    public void printCombatOptions(List&lt;IAbility&gt; abilities, Set&lt;IItem&gt; inventory) {
+<span class="fc" id="L46">        System.out.println(&quot;\nThese are your options&quot;);</span>
+<span class="fc" id="L47">        int index = 0;</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        for (IAbility ability : abilities) {</span>
+<span class="fc" id="L49">            System.out.println(index++ + &quot;: &quot; + ability.getName() + &quot; Type: &quot; + ability.getType() + &quot; Cost: &quot; + ability.getCost());</span>
+<span class="fc" id="L50">        }</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        for (IItem item : inventory) {</span>
+<span class="fc" id="L52">            System.out.println(index++ + &quot;: &quot; + item.name() + &quot; Type: &quot; + item.type() + &quot; Cost: &quot; + item.cost());</span>
+<span class="fc" id="L53">        }</span>
+<span class="fc" id="L54">    }</span>
+
+    public void printAvailableCommands(List&lt;ICommand&gt; commands) {
+<span class="fc" id="L57">        System.out.println(&quot;\nThese are the avaiblable commands&quot;);</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        for (ICommand command : commands) {</span>
+<span class="fc" id="L59">            System.out.println(command.commandName());</span>
+<span class="fc" id="L60">        }</span>
+<span class="fc" id="L61">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
