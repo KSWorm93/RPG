@@ -100,11 +100,11 @@ public class Warrior implements IClass {
         return null;
     }
 
-    private void checkExp(int exp) {
-        if (exp >= 100) {
-            onLevelUp();
-        }
-    }
+//    private void checkExp(int exp) {
+//        if (exp >= 100) {
+//            onLevelUp();
+//        }
+//    }
 
     /**
      * Upgrade single stat
