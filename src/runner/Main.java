@@ -10,6 +10,7 @@ import quests.classquest.WarriorIntro;
 import quests.mainquest.Intro;
 import quests.sidequest.RandomEncounter;
 import utils.ClassHandler;
+import utils.CleanOutputHelper;
 import utils.CommandHandler;
 import utils.PrintHelper;
 import utils.QuestHandler;
@@ -28,6 +29,7 @@ public class Main {
     private static QuestHandler questHandler;
     private static ClassHandler myClass;
     private static StoryHandler story;
+    private static CleanOutputHelper cleanOutput;
 
     /**
      * @param args the command line arguments
@@ -39,9 +41,12 @@ public class Main {
         story = new StoryHandler();
         questHandler = new QuestHandler(scan, story);
         myClass = new ClassHandler();
+        cleanOutput = new CleanOutputHelper();
 
         commandHandler.initCommands();
         commandHandler.executeCommand("!about");
+
+        cleanOutput.waitClear();
 
         System.out.println("\nPlease choose your class");
         printer.printAvailableClasses();
@@ -50,17 +55,24 @@ public class Main {
         System.out.println("You have choosen the " + myClass.getChosenClass().className() + "! Let your journey begin!");
         System.out.println("Creating your class...");
         myClass.getChosenClass().initClass();
-        
+
         //TODO - move quests adding out of main
         story.addQuest(new Intro());
         story.addQuest(new WarriorIntro());
         story.addQuest(new RandomEncounter());
 
+        cleanOutput.waitClear();
+
         printer.printClassStats(myClass.getChosenClass().stats());
+
+        cleanOutput.waitClear();
+
         printer.printClassAbilities(myClass.getChosenClass().abilities());
 
         //Keep running game till exit command is given
         do {
+            cleanOutput.waitClear();
+
             System.out.println("\nMake a move");
             System.out.println("Here are your options:");
             printer.printAvailableQuests(story.getQuests());
