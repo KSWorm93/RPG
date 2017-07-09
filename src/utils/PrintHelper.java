@@ -64,6 +64,8 @@ public class PrintHelper {
     public void printAvailableClasses() {
         System.out.println("You have the choice of choosing the following classes:");
         System.out.println("The mighty Warrior! - To choose type \"Warrior\"");
+        System.out.println("The cunning Rogue! - To choose type \"Rogue\"");
+        System.out.println("The wise Wizard! - To choose type \"Wizard\" - not working");
     }
     
     public void printAvailableQuests(List<IQuest> quests){

@@ -40,4 +40,14 @@ public interface IClass {
     
     public Stat getSingleStat(String nameOfStat);
     
+    /**
+     * Check if exp stat is greater than 100
+     * then call onLevelUp() if it is
+     * @param exp experience stat
+     */
+    default public void checkExp(int exp){
+        if (exp >= 100) {
+            onLevelUp();
+        }
+    };
 }

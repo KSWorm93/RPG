@@ -5,9 +5,14 @@
  */
 package utils;
 
+import character.classes.IClass;
 import java.util.ArrayList;
 import java.util.List;
 import quests.IQuest;
+import quests.classquest.rogue.RogueIntro;
+import quests.classquest.warrior.WarriorIntro;
+import quests.mainquest.Intro;
+import quests.sidequest.RandomEncounter;
 
 /**
  *
@@ -38,12 +43,28 @@ public class StoryHandler {
         return quests.get(questToGet);
     }
 
-    private void reAddQuest(IQuest quest) {
-        quests.add(quest.questInstance());
+    public void initClassStoryline(IClass className) {
+        if ("Warrior".equals(className.className())) {
+            warriorQuests();
+        } else if ("Rogue".equals(className.className())) {
+            rogueQuests();
+        }
     }
 
-    private void initClassStoryline() {
+    private void rogueQuests() {
+        quests.add(new Intro());
+        quests.add(new RogueIntro());
+        quests.add(new RandomEncounter());
+    }
 
+    private void warriorQuests() {
+        quests.add(new Intro());
+        quests.add(new WarriorIntro());
+        quests.add(new RandomEncounter());
+    }
+
+    private void reAddQuest(IQuest quest) {
+        quests.add(quest.questInstance());
     }
 
 }

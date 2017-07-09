@@ -37,7 +37,6 @@ public class QuestHandler {
         int index = 0;
 
         for (String dialogue : quest.questDialogue()) {
-//            cleaner.waitForEnter();
             System.out.println(dialogue);
             IMove move = quest.questMoves().get(index);
             if (move.encounter()) {
