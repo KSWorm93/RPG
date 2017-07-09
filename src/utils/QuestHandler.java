@@ -21,6 +21,7 @@ public class QuestHandler {
     private final CommandHandler commander = new CommandHandler();
     private CombatHandler combatter;
     private final StoryHandler story;
+    private final CleanOutputHelper cleaner = new CleanOutputHelper();
 
     public QuestHandler(Scanner scan, StoryHandler story) {
         this.scan = scan;
@@ -36,6 +37,7 @@ public class QuestHandler {
         int index = 0;
 
         for (String dialogue : quest.questDialogue()) {
+//            cleaner.waitForEnter();
             System.out.println(dialogue);
             IMove move = quest.questMoves().get(index);
             if (move.encounter()) {
@@ -63,6 +65,7 @@ public class QuestHandler {
     }
 
     private void notCombatMove(IMove move) {
+        cleaner.waitClear();
         String input;
         switch (move.numberOfMoves()) {
             case 1:
