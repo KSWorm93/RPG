@@ -31,7 +31,10 @@ public class StoryHandler {
     }
 
     public void removeQuest(IQuest quest) {
-        if (!quest.questName().contains("REPEATABLE")) {
+        if (quest.questName().contains("REPEATABLE")) {
+            quests.remove(quest);
+            reAddQuest(quest);
+        } else {
             quests.remove(quest);
         }
     }
@@ -41,23 +44,27 @@ public class StoryHandler {
     }
 
     public void initClassStoryline(IClass className) {
-        if("Warrior".equals(className.className())){
+        if ("Warrior".equals(className.className())) {
             warriorQuests();
-        } else if("Rogue".equals(className.className())){
+        } else if ("Rogue".equals(className.className())) {
             rogueQuests();
         }
     }
-    
-    private void rogueQuests(){
+
+    private void rogueQuests() {
         quests.add(new Intro());
-        quests.add(new RandomEncounter());
         quests.add(new RogueIntro());
-    }
-    
-    private void warriorQuests(){
-        quests.add(new Intro());
         quests.add(new RandomEncounter());
+    }
+
+    private void warriorQuests() {
+        quests.add(new Intro());
         quests.add(new WarriorIntro());
+        quests.add(new RandomEncounter());
+    }
+
+    private void reAddQuest(IQuest quest) {
+        quests.add(quest.questInstance());
     }
 
 }

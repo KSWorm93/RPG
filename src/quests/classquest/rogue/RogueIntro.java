@@ -58,4 +58,9 @@ public class RogueIntro implements IQuest {
         return dialogue;
     }
 
+    @Override
+    public IQuest questInstance() {
+        return new RogueIntro();
+    }
+
 }

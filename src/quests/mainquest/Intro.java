@@ -66,4 +66,9 @@ public class Intro implements IQuest {
         return dialogue;
     }
 
+    @Override
+    public IQuest questInstance() {
+        return new Intro();
+    }
+
 }

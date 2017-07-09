@@ -7,6 +7,7 @@ package runner;
 
 import java.util.Scanner;
 import utils.ClassHandler;
+import utils.CleanOutputHelper;
 import utils.CommandHandler;
 import utils.PrintHelper;
 import utils.QuestHandler;
@@ -25,6 +26,7 @@ public class Main {
     private static QuestHandler questHandler;
     private static ClassHandler myClass;
     private static StoryHandler story;
+    private static CleanOutputHelper cleanOutput;
 
     /**
      * @param args the command line arguments
@@ -36,25 +38,36 @@ public class Main {
         story = new StoryHandler();
         questHandler = new QuestHandler(scan, story);
         myClass = new ClassHandler();
+        cleanOutput = new CleanOutputHelper();
 
         commandHandler.initCommands();
         commandHandler.executeCommand("!about");
+
+        cleanOutput.waitClear();
 
         System.out.println("\nPlease choose your class");
         printer.printAvailableClasses();
         myClass.selectClass(scan.next());
 
-        System.out.println("You have choosen the " + myClass.getChosenClass().className() + "! Let your journey begin!");
+        System.out.println("\nYou have chosen the " + myClass.getChosenClass().className() + "! Let your journey begin!");
         System.out.println("Creating your class...");
         myClass.getChosenClass().initClass();
 
         story.initClassStoryline(myClass.getChosenClass());
+        //TODO - move quests adding out of main
+
+        cleanOutput.waitClear();
 
         printer.printClassStats(myClass.getChosenClass().stats());
+
+        cleanOutput.waitClear();
+
         printer.printClassAbilities(myClass.getChosenClass().abilities());
 
         //Keep running game till exit command is given
         do {
+            cleanOutput.waitClear();
+
             System.out.println("\nMake a move");
             System.out.println("Here are your options:");
             printer.printAvailableQuests(story.getQuests());

@@ -58,4 +58,9 @@ public class WarriorIntro implements IQuest {
         return dialogue;
     }
 
+    @Override
+    public IQuest questInstance() {
+        return new WarriorIntro();
+    }
+
 }
