@@ -5,13 +5,30 @@
  */
 package commands;
 
+import java.util.Random;
+
 /**
  *
  * @author kasper
  */
-public class Tip {
-    
-    //TODO - random tip 
-    //do intro quests for more exp
-    //Repeatable quests can be done multiple times, and will give reward each time
+public class Tip implements ICommand {
+
+    private Random random = new Random();
+    private String[] tips = new String[]{
+        "Quests ending with \"REPEATABLE\" can be done multiple times, and give new rewards each time.",
+        "You can do multiple actions each turn, as long as you have ability points left.",
+        "Intro quests are a good place to start your journey.",
+        "Class quests will provide you with new skills."
+    };
+
+    @Override
+    public String commandName() {
+        return "!tip - Get shown a random tip";
+    }
+
+    @Override
+    public void executeCommand() {
+        System.out.println(tips[random.nextInt(tips.length)]);
+    }
+
 }
