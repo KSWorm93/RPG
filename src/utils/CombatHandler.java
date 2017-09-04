@@ -106,8 +106,17 @@ public class CombatHandler {
         } else {
             if (yourClass.abilities().get(input).getType().equals("Defensive")) {
 //                System.out.println("You healed yourself for: " + yourClass.abilities().get(input).getValue());
+
                 yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.abilities().get(input).getValue());
+                checkHP(yourClass);
+
             }
+        }
+    }
+
+    private void checkHP(IClass yourClass) {
+        if (yourClass.getSingleStat(hp).getStatValue() >= 100) {
+            yourClass.getSingleStat(hp).setStatValue(100);
         }
     }
 
