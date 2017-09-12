@@ -51,8 +51,10 @@ public class QuestHandler {
         questCompleted(quest);
         myClass.addReward(experience, quest.statReward(), quest.itemReward(), quest.abilityReward());
         story.removeQuest(quest);
-        story.addQuests(quest.questUnlocks());
-        
+        if (quest.questUnlocks() != null) {
+            story.addQuests(quest.questUnlocks());
+        }
+
     }
 
     private void combatMove(IQuest quest, int index, IClass myClass) {

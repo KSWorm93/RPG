@@ -104,10 +104,12 @@ public class Warrior implements IClass {
         //Items
         if(item != null){
             inventory.add(item);
+            //TODO - test if working
         }
         //Abilities
         if(ability != null){
             abilities.add(ability);
+            //TODO - test if working
         }
     }
 
@@ -178,19 +180,19 @@ public class Warrior implements IClass {
     private void initAbilities() {
         abilities = new ArrayList<>();
         OffensiveAbility slash = new OffensiveAbility("Offensive", "Slash", 2, 4, 1);
-        DefensiveAbility firstAid = new DefensiveAbility("Defensive", "First Aid", 4, 10, 1);
+//        DefensiveAbility firstAid = new DefensiveAbility("Defensive", "First Aid", 4, 10, 1);
         CommonAbility pass = new CommonAbility("Common", "Pass", 0, 0, 0);
 
         abilities.add(pass);
         abilities.add(slash);
-        abilities.add(firstAid);
+//        abilities.add(firstAid);
     }
 
     private void initInventory() {
         inventory = new HashSet<>();
-        Potion tinyHealingPotion = new Potion("Tiny Healing Potion", "Healing Potion", 10);
+//        Potion tinyHealingPotion = new Potion("Tiny Healing Potion", "Healing Potion", 10);
 
-        inventory.add(tinyHealingPotion);
+//        inventory.add(tinyHealingPotion);
     }
 
 }

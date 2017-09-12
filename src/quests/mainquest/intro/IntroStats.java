@@ -100,7 +100,9 @@ public class IntroStats implements IQuest {
 
     @Override
     public List<IQuest> questUnlocks() {
-        return null;
+        List<IQuest> quests = new ArrayList();
+        quests.add(new IntroAbilities());
+        return quests;
     }
     
     @Override
