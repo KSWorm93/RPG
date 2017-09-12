@@ -106,8 +106,21 @@ public class CombatHandler {
         } else {
             if (yourClass.abilities().get(input).getType().equals("Defensive")) {
 //                System.out.println("You healed yourself for: " + yourClass.abilities().get(input).getValue());
+
                 yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.abilities().get(input).getValue());
+                checkHP(yourClass);
             }
+        }
+    }
+
+    /**
+     * Method to check whether max hp is reached, and if it is, set it to max hp
+     *
+     * @param yourClass yourclass to get hp stat
+     */
+    private void checkHP(IClass yourClass) {
+        if (yourClass.getSingleStat(hp).getStatValue() >= 100) {
+            yourClass.getSingleStat(hp).setStatValue(100);
         }
     }
 

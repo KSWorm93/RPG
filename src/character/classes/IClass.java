@@ -34,20 +34,21 @@ public interface IClass {
 
     public int abilityPoints(); //Points to spend on moves during combat
 
-    public void onLevelUp(); //Decide stat upgrade
-    
+    public void onLevelUp(int exp); //Decide stat upgrade
+
     public void addReward(int exp, String statPoint, IItem item, IAbility ability);
-    
+
     public Stat getSingleStat(String nameOfStat);
-    
+
     /**
-     * Check if exp stat is greater than 100
-     * then call onLevelUp() if it is
+     * Check if exp stat is greater than 100 then call onLevelUp() if it is
+     *
      * @param exp experience stat
      */
-    default public void checkExp(int exp){
+    default public void checkExp(int exp) {
         if (exp >= 100) {
-            onLevelUp();
+            onLevelUp(exp);
         }
-    };
+    }
+;
 }

@@ -70,4 +70,9 @@ public class RandomEncounter implements IQuest {
         return new RandomEncounter();
     }
 
+    @Override
+    public List<IQuest> questUnlocks() {
+        return null;
+    }
+
 }

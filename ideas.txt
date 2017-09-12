@@ -1,0 +1,18 @@
+Item
+Magic potion - gained at start - upgraded later on - infinite uses
+
+weapon same way? - upgradeable weapon
+
+buffs - potion buff stat, dmg dealth
+debuff - weakened attack, dmg over time, no action for x turn
+
+combat commands
+ - cStatus - display buffs/debuffs
+ - cWeapon - show info about your weapon
+ 
+ 
+reward system - interface choose between different objects/type - weapon/exp/item
+
+class based weapons - choose at startup between different options
+only reward specific weapons
+choose at startup - upgradeable weapons?? 

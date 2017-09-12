@@ -11,7 +11,7 @@ import java.util.List;
 import quests.IQuest;
 import quests.classquest.rogue.RogueIntro;
 import quests.classquest.warrior.WarriorIntro;
-import quests.mainquest.Intro;
+import quests.intro.Intro;
 import quests.sidequest.RandomEncounter;
 
 /**
@@ -28,6 +28,12 @@ public class StoryHandler {
 
     public void addQuest(IQuest quest) {
         quests.add(quest);
+    }
+
+    public void addQuests(List<IQuest> quests) {
+        if (quests != null) {
+            this.quests.addAll(quests);
+        }
     }
 
     public void removeQuest(IQuest quest) {
