@@ -5,6 +5,8 @@
  */
 package quests;
 
+import character.abilities.IAbility;
+import character.item.IItem;
 import enemies.IEnemy;
 import java.util.List;
 import quests.moves.IMove;
@@ -20,4 +22,13 @@ public interface IQuest {
     public List<String> questDialogue();
     public IQuest questInstance();
     public List<IQuest> questUnlocks();
+    default public IItem itemReward(){
+        return null;
+    }
+    default public IAbility abilityReward(){
+        return null;
+    }
+    default public String statReward(){
+        return null;
+    }
 }

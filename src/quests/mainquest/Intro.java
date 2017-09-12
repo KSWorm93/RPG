@@ -78,5 +78,10 @@ public class Intro implements IQuest {
         quests.add(new WarriorIntro());
         return quests;
     }
+    
+    @Override
+    public String statReward(){
+        return "Strength";
+    }
 
 }

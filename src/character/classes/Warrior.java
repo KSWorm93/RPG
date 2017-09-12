@@ -83,11 +83,21 @@ public class Warrior implements IClass {
 
     @Override
     public void addReward(int exp, String statPoint, IItem item, IAbility ability) {
-        int temp = stats.get(2).getStatValue();
-        temp += exp;
-        stats.get(2).setStatValue(temp);
-
+        //Experience
+        int tempExp = stats.get(2).getStatValue();
+        tempExp += exp;
+        stats.get(2).setStatValue(tempExp);
         checkExp(stats.get(2).getStatValue());
+        
+        //Stats
+        int statLoc = stats.indexOf(getSingleStat(statPoint));
+        int tempStat = stats.get(statLoc).getStatValue();
+        tempStat++;
+        stats.get(statLoc).setStatValue(tempStat);
+        
+        //Items
+        
+        //Abilities
     }
 
     @Override

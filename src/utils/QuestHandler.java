@@ -49,7 +49,7 @@ public class QuestHandler {
             index++;
         }
         questCompleted(quest);
-        myClass.addReward(experience, null, null, null);
+        myClass.addReward(experience, quest.statReward(), quest.itemReward(), quest.abilityReward());
         story.removeQuest(quest);
         story.addQuests(quest.questUnlocks());
         
