@@ -10,6 +10,7 @@ import enemies.SkeletonWarrior;
 import java.util.ArrayList;
 import java.util.List;
 import quests.IQuest;
+import quests.classquest.warrior.WarriorIntro;
 import quests.moves.Duo;
 import quests.moves.IMove;
 import quests.moves.Single;
@@ -69,6 +70,13 @@ public class Intro implements IQuest {
     @Override
     public IQuest questInstance() {
         return new Intro();
+    }
+
+    @Override
+    public List<IQuest> questUnlocks() {
+        List<IQuest> quests = new ArrayList();
+        quests.add(new WarriorIntro());
+        return quests;
     }
 
 }

@@ -51,6 +51,7 @@ public class QuestHandler {
         questCompleted(quest);
         myClass.addReward(experience, null, null, null);
         story.removeQuest(quest);
+        story.addQuests(quest.questUnlocks());
         
     }
 

@@ -70,4 +70,9 @@ public class RandomEncounter implements IQuest {
         return new RandomEncounter();
     }
 
+    @Override
+    public List<IQuest> questUnlocks() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -29,6 +29,10 @@ public class StoryHandler {
     public void addQuest(IQuest quest) {
         quests.add(quest);
     }
+    
+    public void addQuests(List<IQuest> quests){
+        this.quests.addAll(quests);
+    }
 
     public void removeQuest(IQuest quest) {
         if (quest.questName().contains("REPEATABLE")) {
@@ -59,7 +63,6 @@ public class StoryHandler {
 
     private void warriorQuests() {
         quests.add(new Intro());
-        quests.add(new WarriorIntro());
         quests.add(new RandomEncounter());
     }
 

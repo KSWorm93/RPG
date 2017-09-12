@@ -63,4 +63,9 @@ public class WarriorIntro implements IQuest {
         return new WarriorIntro();
     }
 
+    @Override
+    public List<IQuest> questUnlocks() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
