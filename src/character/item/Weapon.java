@@ -48,7 +48,7 @@ public class Weapon implements IItem{
     }
 
     @Override
-    public int cost() {
+    public int value() {
         return 10;
     }
     

@@ -62,7 +62,7 @@ public class CombatHandler {
     private void yourTurn(IClass yourClass, IEnemy enemy, int tempMyHP, int resetActionPoint, String msg) {
         String input;
 
-        while (resetActionPoint > 0) {
+        if (resetActionPoint > 0) {
             cleaner.clear();
             printHealthPoints(yourClass, enemy);
             System.out.println("\nYour turn");
@@ -76,13 +76,14 @@ public class CombatHandler {
             }
 
             checkAP(yourClass, Integer.parseInt(input), resetActionPoint, enemy, tempMyHP);
-            checkAbility(yourClass, Integer.parseInt(input), enemy, tempMyHP);
-
-            if (enemy.healthPoints() <= 0) {
-                break;
-            }
+            checkAbility(yourClass, Integer.parseInt(input), enemy, tempMyHP, resetActionPoint);
 
             resetActionPoint -= yourClass.abilities().get(Integer.parseInt(input)).getCost();
+
+            if (enemy.healthPoints() <= 0) {
+                return;
+            }
+            yourTurn(yourClass, enemy, tempMyHP, resetActionPoint, "");
         }
     }
 
@@ -99,17 +100,36 @@ public class CombatHandler {
      * @param enemy enemy to hit if offensive ability
      * @param tempMyHP your current health points
      */
-    private void checkAbility(IClass yourClass, int input, IEnemy enemy, int tempMyHP) {
+    private void checkAbility(IClass yourClass, int input, IEnemy enemy, int tempMyHP, int resetActionPoints) {
         if (yourClass.abilities().get(input).getType().equals("Offensive")) {
-//            System.out.println("\nYou hit " + enemy.name() + " for: " + yourClass.abilities().get(input).getValue());
             enemy.hit(yourClass.abilities().get(input).getValue());
+        } else if (yourClass.abilities().get(input).getType().equals("Defensive")) {
+            yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.abilities().get(input).getValue());
+            checkHP(yourClass);
         } else {
-            if (yourClass.abilities().get(input).getType().equals("Defensive")) {
-//                System.out.println("You healed yourself for: " + yourClass.abilities().get(input).getValue());
-
-                yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.abilities().get(input).getValue());
-                checkHP(yourClass);
+            if (yourClass.abilities().get(input).getName().equals("Inventory")) {
+                printer.printInventory(yourClass.inventory());
+                inventorySelector(yourClass, tempMyHP, enemy, resetActionPoints);
             }
+        }
+    }
+
+    /**
+     * Choose which item in inventory to use
+     *
+     * @param yourClass
+     * @param tempMyHP
+     * @param enemy
+     * @param resetActionPoints
+     * @throws NumberFormatException
+     */
+    private void inventorySelector(IClass yourClass, int tempMyHP, IEnemy enemy, int resetActionPoints) throws NumberFormatException {
+        int item = Integer.parseInt(scan.next());
+        if (yourClass.inventory().get(item).type().contains("Healing")) {
+            yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.inventory().get(item).value());
+            checkHP(yourClass);
+        } else if (yourClass.inventory().get(item).type().contains("Back")) {
+            yourTurn(yourClass, enemy, tempMyHP, resetActionPoints, "Returned from inventory");
         }
     }
 

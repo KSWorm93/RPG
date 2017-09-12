@@ -13,6 +13,7 @@ import character.abilities.IAbility;
 import character.abilities.DefensiveAbility;
 import character.item.IItem;
 import character.item.Potion;
+import character.item.QuestItem;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -28,7 +29,7 @@ public class Warrior implements IClass {
     private Weapon mainHand;
     private Weapon offHand;
     private List<IAbility> abilities;
-    private Set<IItem> inventory;
+    private List<IItem> inventory;
 
     @Override
     public void initClass() {
@@ -54,7 +55,7 @@ public class Warrior implements IClass {
     }
 
     @Override
-    public Set<IItem> inventory() {
+    public List<IItem> inventory() {
         return inventory;
     }
 
@@ -179,19 +180,19 @@ public class Warrior implements IClass {
     private void initAbilities() {
         abilities = new ArrayList<>();
         OffensiveAbility slash = new OffensiveAbility("Offensive", "Slash", 2, 4, 1);
-//        DefensiveAbility firstAid = new DefensiveAbility("Defensive", "First Aid", 4, 10, 1);
         CommonAbility pass = new CommonAbility("Common", "Pass", 0, 0, 0);
+        CommonAbility inventory = new CommonAbility("Common", "Inventory", 0, 0, 0);
 
         abilities.add(pass);
+        abilities.add(inventory);
         abilities.add(slash);
-//        abilities.add(firstAid);
     }
 
     private void initInventory() {
-        inventory = new HashSet<>();
-//        Potion tinyHealingPotion = new Potion("Tiny Healing Potion", "Healing Potion", 10);
+        inventory = new ArrayList<>();
+        Potion back = new Potion("Back", "Back", 0, 0);
 
-//        inventory.add(tinyHealingPotion);
+        inventory.add(back);
     }
 
 }
