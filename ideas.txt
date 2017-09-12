@@ -16,3 +16,5 @@ reward system - interface choose between different objects/type - weapon/exp/ite
 class based weapons - choose at startup between different options
 only reward specific weapons
 choose at startup - upgradeable weapons?? 
+
+Main menu - able to start new game or load existing

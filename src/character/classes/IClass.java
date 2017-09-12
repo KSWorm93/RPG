@@ -10,7 +10,6 @@ import character.Stat;
 import character.abilities.IAbility;
 import character.item.IItem;
 import java.util.List;
-import java.util.Set;
 
 /**
  *
@@ -26,7 +25,7 @@ public interface IClass {
 
     public List<IAbility> abilities(); //List of abilities the character has
 
-    public Set<IItem> inventory(); //All the items
+    public List<IItem> inventory(); //All the items
 
     public Weapon mainHand(); //Mainhand weapon
 

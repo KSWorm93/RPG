@@ -12,5 +12,5 @@ package character.item;
 public interface IItem {
     public String name();
     public String type();
-    public int cost();
+    public int value();
 }

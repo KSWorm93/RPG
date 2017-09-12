@@ -50,7 +50,7 @@ public class Tome implements IItem{
     }
 
     @Override
-    public int cost() {
+    public int value() {
         return 8;
     }
     

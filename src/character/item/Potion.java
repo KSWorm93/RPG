@@ -9,18 +9,34 @@ package character.item;
  *
  * @author kasper
  */
-public class Potion implements IItem{
+public class Potion implements IItem {
 
     private String name;
     private String type;
     private int amount;
+    private int value;
 
     public Potion(String name, String type, int amount) {
         this.name = name;
         this.type = type;
         this.amount = amount;
     }
-    
+
+    /**
+     * Use this if you want different default value for cost
+     *
+     * @param name
+     * @param type
+     * @param amount
+     * @param value
+     */
+    public Potion(String name, String type, int amount, int value) {
+        this.name = name;
+        this.type = type;
+        this.amount = amount;
+        this.value = value;
+    }
+
     @Override
     public String name() {
         return name;
@@ -30,8 +46,8 @@ public class Potion implements IItem{
     public String type() {
         return type;
     }
-    
-    public int amount(){
+
+    public int amount() {
         return amount;
     }
 
@@ -48,12 +64,8 @@ public class Potion implements IItem{
     }
 
     @Override
-    public int cost() {
+    public int value() {
         return 4;
     }
-    
-    
-    
-    
-    
+
 }

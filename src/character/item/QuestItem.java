@@ -22,7 +22,7 @@ public class QuestItem implements IItem {
     }
 
     @Override
-    public int cost() {
+    public int value() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

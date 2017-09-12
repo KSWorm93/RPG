@@ -34,7 +34,7 @@ public class Wizard implements IClass{
     }
     
     @Override
-    public Set<IItem> inventory() {
+    public List<IItem> inventory() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

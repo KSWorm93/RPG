@@ -10,7 +10,6 @@ import character.abilities.IAbility;
 import character.item.IItem;
 import commands.ICommand;
 import java.util.List;
-import java.util.Set;
 import quests.IQuest;
 
 /**
@@ -43,14 +42,19 @@ public class PrintHelper {
         }
     }
 
-    public void printCombatOptions(List<IAbility> abilities, Set<IItem> inventory) {
+    public void printCombatOptions(List<IAbility> abilities, List<IItem> inventory) {
         System.out.println("\nThese are your options");
         int index = 0;
         for (IAbility ability : abilities) {
             System.out.println(index++ + ": " + ability.getName() + " Type: " + ability.getType() + " Cost: " + ability.getCost());
         }
+    }
+
+    public void printInventory(List<IItem> inventory) {
+        System.out.println("\nThese are your options");
+        int index = 0;
         for (IItem item : inventory) {
-            System.out.println(index++ + ": " + item.name() + " Type: " + item.type() + " Cost: " + item.cost());
+            System.out.println(index++ + ": " + item.name() + " Type: " + item.type() + " Cost: " + item.value());
         }
     }
 
@@ -67,8 +71,8 @@ public class PrintHelper {
         System.out.println("The cunning Rogue! - To choose type \"Rogue\"");
         System.out.println("The wise Wizard! - To choose type \"Wizard\" - not working");
     }
-    
-    public void printAvailableQuests(List<IQuest> quests){
+
+    public void printAvailableQuests(List<IQuest> quests) {
         System.out.println("\nThese are your available Quests");
         int index = 0;
         for (IQuest quest : quests) {

@@ -28,7 +28,7 @@ public class Rogue implements IClass {
     private Weapon mainHand;
     private Weapon offHand;
     private List<IAbility> abilities;
-    private Set<IItem> inventory;
+    private List<IItem> inventory;
 
     @Override
     public String className() {
@@ -46,7 +46,7 @@ public class Rogue implements IClass {
     }
 
     @Override
-    public Set<IItem> inventory() {
+    public List<IItem> inventory() {
         return inventory;
     }
 
@@ -166,7 +166,7 @@ public class Rogue implements IClass {
     }
 
     private void initInventory() {
-        inventory = new HashSet<>();
+        inventory = new ArrayList<>();
         Potion tinyHealingPotion = new Potion("Tiny Healing Potion", "Healing Potion", 10);
 
         inventory.add(tinyHealingPotion);
