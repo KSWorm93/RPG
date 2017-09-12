@@ -11,7 +11,7 @@ import java.util.List;
 import quests.IQuest;
 import quests.classquest.rogue.RogueIntro;
 import quests.classquest.warrior.WarriorIntro;
-import quests.mainquest.intro.Intro;
+import quests.intro.Intro;
 import quests.sidequest.RandomEncounter;
 
 /**

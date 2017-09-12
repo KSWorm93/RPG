@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quests.mainquest.intro;
+package quests.intro;
 
+import character.abilities.DefensiveAbility;
+import character.abilities.IAbility;
 import enemies.IEnemy;
 import enemies.SkeletonWarrior;
 import java.util.ArrayList;
@@ -20,11 +22,11 @@ import quests.moves.Triple;
  *
  * @author kasper
  */
-public class Intro implements IQuest {
+public class IntroAbilities implements IQuest {
 
     @Override
     public String questName() {
-        return "Intro Quest - Basic movement";
+        return "Intro Quest - Abilities";
     }
 
     @Override
@@ -40,12 +42,14 @@ public class Intro implements IQuest {
     public List<IMove> questMoves() {
         List<IMove> moves = new ArrayList();
         IMove firstMove = new Single(false);
-        IMove secondMove = new Duo(false);
-        IMove thirdMove = new Triple(false);
+        IMove secondMove = new Single(false);
+        IMove thirdMove = new Single(false);
+        IMove forthMove = new Single(false);
 
         moves.add(firstMove);
         moves.add(secondMove);
         moves.add(thirdMove);
+        moves.add(forthMove);
         return moves;
     }
 
@@ -53,16 +57,20 @@ public class Intro implements IQuest {
     public List<String> questDialogue() {
         List<String> dialogue = new ArrayList();
         String first = "\nThis is an introductory quest"
-                + "\nwhere you will learn basic movement in the game";
-        String second = "Movement is simple, you get a list of options,"
-                + "\nand choose from them by typing in a number, "
-                + "\naccording to where you want to go.";
-        String third = "This concludes the tutorial"
-                + "\nEnter final number to finish the quest";
+                + "\nwhere you will learn basic abilities in the game";
+        String second = "There is many different kinds of abilities"
+                + "\nOffensive and defensive abilities";
+        String third = "Defensive Abilities"
+                + "\nThese abilities will heal or buff you"
+                + "\nso you are able to stay in the fight for longer";
+        String forth = "Offensive Abilities"
+                + "\nThese are your damaging and debuffing abilities"
+                + "\nYOu use them to beat your opponent";
 
         dialogue.add(first);
         dialogue.add(second);
         dialogue.add(third);
+        dialogue.add(forth);
 
         return dialogue;
     }
@@ -75,13 +83,14 @@ public class Intro implements IQuest {
     @Override
     public List<IQuest> questUnlocks() {
         List<IQuest> quests = new ArrayList();
-        quests.add(new IntroStats());
+        quests.add(new IntroItems());
         return quests;
     }
-    
+
     @Override
-    public String statReward(){
-        return "Strength";
+    public IAbility abilityReward() {
+        DefensiveAbility firstAid = new DefensiveAbility("Defensive", "First Aid", 4, 10, 1);
+        return firstAid;
     }
 
 }

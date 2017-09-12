@@ -102,14 +102,13 @@ public class Warrior implements IClass {
         }
 
         //Items
-        if(item != null){
+        if (item != null) {
             inventory.add(item);
-            //TODO - test if working
         }
+
         //Abilities
-        if(ability != null){
+        if (ability != null) {
             abilities.add(ability);
-            //TODO - test if working
         }
     }
 

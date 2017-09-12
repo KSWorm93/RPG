@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quests.mainquest.intro;
+package quests.intro;
 
 import character.item.IItem;
 import character.item.Potion;
@@ -71,9 +71,9 @@ public class IntroItems implements IQuest {
     public List<IQuest> questUnlocks() {
         return null;
     }
-    
+
     @Override
-    public IItem itemReward(){
+    public IItem itemReward() {
         Potion tinyHealingPotion = new Potion("Tiny Healing Potion", "Healing Potion", 10);
         return tinyHealingPotion;
     }

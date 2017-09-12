@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quests.mainquest.intro;
+package quests.intro;
 
 import enemies.IEnemy;
 import enemies.SkeletonWarrior;

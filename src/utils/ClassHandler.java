@@ -39,15 +39,9 @@ public class ClassHandler {
     public IClass getChosenClass() {
         return myClass;
     }
-    
-    public static List<Stat> getStats(){
+
+    public static List<Stat> getStats() {
         return myClass.stats();
     }
-    
-//    public void checkLevelUp(){
-//        if(myClass.stats().get(2).getStatValue() >= 100){
-//            myClass.onLevelUp(myClass.stats().get(2).getStatValue());
-//        }
-//    }
 
 }
