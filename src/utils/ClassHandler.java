@@ -11,7 +11,6 @@ import character.classes.Rogue;
 import character.classes.Warrior;
 import character.classes.Wizard;
 import java.util.List;
-import quests.IQuest;
 
 /**
  *
@@ -45,10 +44,10 @@ public class ClassHandler {
         return myClass.stats();
     }
     
-    public void checkLevelUp(){
-        if(myClass.stats().get(2).getStatValue() >= 100){
-            myClass.onLevelUp();
-        }
-    }
+//    public void checkLevelUp(){
+//        if(myClass.stats().get(2).getStatValue() >= 100){
+//            myClass.onLevelUp(myClass.stats().get(2).getStatValue());
+//        }
+//    }
 
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quests.mainquest;
+package quests.mainquest.intro;
 
 import enemies.IEnemy;
 import enemies.SkeletonWarrior;
@@ -75,7 +75,7 @@ public class Intro implements IQuest {
     @Override
     public List<IQuest> questUnlocks() {
         List<IQuest> quests = new ArrayList();
-        quests.add(new WarriorIntro());
+        quests.add(new IntroStats());
         return quests;
     }
     

@@ -59,7 +59,7 @@ public class Wizard implements IClass{
     }
 
     @Override
-    public void onLevelUp() {
+    public void onLevelUp(int exp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

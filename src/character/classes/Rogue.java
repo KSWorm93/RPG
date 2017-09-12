@@ -74,7 +74,7 @@ public class Rogue implements IClass {
     }
 
     @Override
-    public void onLevelUp() {
+    public void onLevelUp(int exp) {
         //TODO - get user to interact and choose which stat to use
         System.out.println("\nYou have leveled up, you will now upgrade agility");
         upgradeStat(stats, 5, true);
@@ -135,7 +135,7 @@ public class Rogue implements IClass {
         Stat healthPoints = new Stat("Health Points", 100);
         Stat strength = new Stat("Strength", 6);
         Stat agility = new Stat("Agility", 10);
-        Stat inteligence = new Stat("Inteligence", 6);
+        Stat intelligence = new Stat("Intelligence", 6);
 
         stats.add(abilityPoints);
         stats.add(level);
@@ -143,7 +143,7 @@ public class Rogue implements IClass {
         stats.add(healthPoints);
         stats.add(strength);
         stats.add(agility);
-        stats.add(inteligence);
+        stats.add(intelligence);
     }
 
     /**

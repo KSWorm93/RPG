@@ -74,11 +74,15 @@ public class Warrior implements IClass {
     }
 
     @Override
-    public void onLevelUp() {
+    public void onLevelUp(int exp) {
         //TODO - get user to interact and choose which stat to use
         System.out.println("\nYou have leveled up, you will now upgrade strength");
         upgradeStat(stats, 4, true);
-        stats.get(2).setStatValue(0);
+
+        //Experience points - if more than 100 exp, level up and check again
+        exp -= 100;
+        stats.get(2).setStatValue(exp);
+        checkExp(exp);
     }
 
     @Override
@@ -88,16 +92,23 @@ public class Warrior implements IClass {
         tempExp += exp;
         stats.get(2).setStatValue(tempExp);
         checkExp(stats.get(2).getStatValue());
-        
+
         //Stats
-        int statLoc = stats.indexOf(getSingleStat(statPoint));
-        int tempStat = stats.get(statLoc).getStatValue();
-        tempStat++;
-        stats.get(statLoc).setStatValue(tempStat);
-        
+        if (statPoint != null) {
+            int statLoc = stats.indexOf(getSingleStat(statPoint));
+            int tempStat = stats.get(statLoc).getStatValue();
+            tempStat++;
+            stats.get(statLoc).setStatValue(tempStat);
+        }
+
         //Items
-        
+        if(item != null){
+            inventory.add(item);
+        }
         //Abilities
+        if(ability != null){
+            abilities.add(ability);
+        }
     }
 
     @Override
@@ -145,7 +156,7 @@ public class Warrior implements IClass {
         Stat healthPoints = new Stat("Health Points", 100);
         Stat strength = new Stat("Strength", 10);
         Stat agility = new Stat("Agility", 6);
-        Stat inteligence = new Stat("Inteligence", 6);
+        Stat intelligence = new Stat("Intelligence", 6);
 
         stats.add(abilityPoints);
         stats.add(level);
@@ -153,7 +164,7 @@ public class Warrior implements IClass {
         stats.add(healthPoints);
         stats.add(strength);
         stats.add(agility);
-        stats.add(inteligence);
+        stats.add(intelligence);
     }
 
     /**
