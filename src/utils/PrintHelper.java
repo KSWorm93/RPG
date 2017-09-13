@@ -31,6 +31,19 @@ public class PrintHelper {
     }
 
     /**
+     * Helper method to print users stats out. contains index
+     *
+     * @param stats list of stats
+     */
+    public void printClassStatsWithNums(List<Stat> stats) {
+        System.out.println("\nThese are the stats for your class, with their current value.");
+        int index = 0;
+        for (Stat stat : stats) {
+            System.out.println(index++ + ": " + stat.getStatName() + ": " + stat.getStatValue());
+        }
+    }
+
+    /**
      * Helper method to print users abilities out.
      *
      * @param abilities list of abilities
