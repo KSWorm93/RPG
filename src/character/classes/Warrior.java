@@ -14,6 +14,8 @@ import character.item.IItem;
 import character.item.Potion;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import utils.PrintHelper;
 
 /**
  *
@@ -26,6 +28,8 @@ public class Warrior implements IClass {
     private Weapon offHand;
     private List<IAbility> abilities;
     private List<IItem> inventory;
+    private Scanner scan;
+    private PrintHelper printer = new PrintHelper();
 
     @Override
     public void initClass() {
@@ -73,9 +77,19 @@ public class Warrior implements IClass {
     @Override
     public void onLevelUp(int exp) {
         //TODO - get user to interact and choose which stat to use
-        System.out.println("\nYou have leveled up, you will now upgrade strength");
-        upgradeStat(stats, 4, true);
+        int statInput;
+        System.out.println("\nYou have leveled up!");
 
+        //TODO - Interactive user choice
+        System.out.println("Choose your stat to change");
+        scan = new Scanner(System.in, "UTF-8");
+        System.out.println("You have 1 point");
+        System.out.println("Please choose your stat to increase");
+        printer.printClassStatsWithNums(stats);
+        statInput = Integer.parseInt(scan.next());
+        
+        upgradeStat(stats, statInput, true);
+        
         //Experience points - if more than 100 exp, level up and check again
         exp -= 100;
         stats.get(2).setStatValue(exp);

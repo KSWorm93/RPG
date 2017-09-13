@@ -22,6 +22,8 @@ public class Tip implements ICommand {
         "If you die during combat, there is no going back, you will begin from last save"
     };
 
+    //TODO - add tip about stats
+    
     @Override
     public String commandName() {
         return "!tip - Get shown a random tip";
