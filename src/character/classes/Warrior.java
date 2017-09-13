@@ -10,14 +10,10 @@ import character.item.Weapon;
 import character.Stat;
 import character.abilities.CommonAbility;
 import character.abilities.IAbility;
-import character.abilities.DefensiveAbility;
 import character.item.IItem;
 import character.item.Potion;
-import character.item.QuestItem;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  *
