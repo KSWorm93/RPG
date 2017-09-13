@@ -19,11 +19,16 @@ import java.util.List;
 public class ClassHandler {
 
     private static IClass myClass;
+    private final LevelUpHelper leveler;
 
+    public ClassHandler(LevelUpHelper leveler) {
+        this.leveler = leveler;
+    }
+    
     public void selectClass(String chosen) {
         switch (chosen) {
             case "Warrior":
-                myClass = new Warrior();
+                myClass = new Warrior(leveler);
                 break;
             case "Rogue":
                 myClass = new Rogue();
