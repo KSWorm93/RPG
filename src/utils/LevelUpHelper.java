@@ -32,13 +32,41 @@ public class LevelUpHelper {
     public int statChooser(List<Stat> stats) {
         int statInput;
         System.out.println("Choose your stat to change");
-        scan = new Scanner(System.in, "UTF-8");
         System.out.println("You have 1 point");
         System.out.println("Please choose your stat to increase");
         printer.printClassStatsWithNums(stats);
+
         statInput = Integer.parseInt(scan.next());
 
-        return statInput;
+        if (checkStat(statInput)) {
+            return statInput;
+        } else {
+            return statChooser(stats);
+        }
+    }
+
+    /**
+     * Checks for valid stat number Invalid stats are 'Level - 1' and
+     * 'Experience poitns - 2'
+     *
+     * @param stat stat to check
+     * @return true if valid stat
+     */
+    private boolean checkStat(int stat) {
+
+        switch (stat) {
+            case 1:
+                System.out.println("You cannot use stat point to increase level"
+                        + "\nPlease choose another stat");
+                return false;
+            case 2:
+                System.out.println("You cannot use stat point to increase experience points"
+                        + "\nPlease choose something else");
+                return false;
+            default:
+                return true;
+        }
+
     }
 
 }
