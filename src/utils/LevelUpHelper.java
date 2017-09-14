@@ -54,6 +54,9 @@ public class LevelUpHelper {
      */
     private boolean checkStat(int stat) {
 
+        //TODO - Health points to set max hp instead of adding to current
+        //Idea - Strenght give +hp? eg. 1str = 5hp
+        
         switch (stat) {
             case 1:
                 System.out.println("You cannot use stat point to increase level"
