@@ -19,7 +19,7 @@ public class CombatHandler {
     private final PrintHelper printer = new PrintHelper();
     private final CommandHandler commander = new CommandHandler();
     private final CleanOutputHelper cleaner = new CleanOutputHelper();
-    private String hp = "Health Points";
+    private final String hp = "Health Points";
 
     public CombatHandler(Scanner scan) {
         this.scan = scan;
@@ -46,6 +46,11 @@ public class CombatHandler {
         } while (!(tempMyHP <= 0 || enemy.healthPoints() <= 0));
     }
 
+    /**
+     * Prints enemy turn outputs
+     *
+     * @param enemy
+     */
     private void enemyTurn(IEnemy enemy) {
         System.out.println("\nEnemy struck first..");
         System.out.println("\nEnemy harmed you for: " + enemy.hitYou());
@@ -67,7 +72,7 @@ public class CombatHandler {
             printHealthPoints(yourClass, enemy);
             System.out.println("\nYour turn");
             printer.printCombatOptions(yourClass.abilities(), yourClass.inventory());
-            System.out.println("You have:" + resetActionPoint + " Ability Points remaining for this turn.");
+            System.out.println("You have " + resetActionPoint + " Ability Points remaining for this turn.");
             System.out.println(msg);
             input = scan.next(); // to stop and make user input
 
@@ -76,9 +81,7 @@ public class CombatHandler {
             }
 
             checkAP(yourClass, Integer.parseInt(input), resetActionPoint, enemy, tempMyHP);
-            checkAbility(yourClass, Integer.parseInt(input), enemy, tempMyHP, resetActionPoint);
-
-            resetActionPoint -= yourClass.abilities().get(Integer.parseInt(input)).getCost();
+            resetActionPoint -= checkAbility(yourClass, Integer.parseInt(input), enemy, tempMyHP, resetActionPoint);
 
             if (enemy.healthPoints() <= 0) {
                 return;
@@ -87,35 +90,47 @@ public class CombatHandler {
         }
     }
 
+    /**
+     * Prints health points
+     *
+     * @param yourClass
+     * @param enemy
+     */
     private void printHealthPoints(IClass yourClass, IEnemy enemy) {
         System.out.println("Your Health Points are: " + yourClass.getSingleStat(hp).getStatValue());
         System.out.println("Enemy Health Points are: " + enemy.healthPoints());
     }
 
     /**
-     * Method to check ability type, and act accordingly
+     * Check ability type, and act accordingly
      *
      * @param yourClass
      * @param input input to get ability
      * @param enemy enemy to hit if offensive ability
      * @param tempMyHP your current health points
      */
-    private void checkAbility(IClass yourClass, int input, IEnemy enemy, int tempMyHP, int resetActionPoints) {
-        if (yourClass.abilities().get(input).getType().equals("Offensive")) {
-            enemy.hit(yourClass.abilities().get(input).getValue());
-        } else if (yourClass.abilities().get(input).getType().equals("Defensive")) {
-            yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.abilities().get(input).getValue());
-            checkHP(yourClass);
-        } else {
-            if (yourClass.abilities().get(input).getName().equals("Inventory")) {
-                printer.printInventory(yourClass.inventory());
-                inventorySelector(yourClass, tempMyHP, enemy, resetActionPoints);
-            }
+    private int checkAbility(IClass yourClass, int input, IEnemy enemy, int tempMyHP, int resetActionPoints) {
+        switch (yourClass.abilities().get(input).getType()) {
+            case "Offensive":
+                enemy.hit(yourClass.abilities().get(input).getValue());
+                return yourClass.abilities().get(input).getCost();
+            case "Defensive":
+                yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.abilities().get(input).getValue());
+                checkHP(yourClass);
+                return yourClass.abilities().get(input).getCost();
+            default:
+                if (yourClass.abilities().get(input).getName().equals("Inventory")) {
+                    printer.printInventory(yourClass.inventory());
+                    return inventorySelector(yourClass, tempMyHP);
+                } else {
+                    return yourClass.getSingleStat("Ability Points").getStatValue();
+                }
         }
     }
 
     /**
-     * Choose which item in inventory to use
+     * Choose which item in inventory to use. Checks type of item and act
+     * accordingly, returning the cost and adding the effects
      *
      * @param yourClass
      * @param tempMyHP
@@ -123,13 +138,16 @@ public class CombatHandler {
      * @param resetActionPoints
      * @throws NumberFormatException
      */
-    private void inventorySelector(IClass yourClass, int tempMyHP, IEnemy enemy, int resetActionPoints) throws NumberFormatException {
+    private int inventorySelector(IClass yourClass, int tempMyHP) throws NumberFormatException {
         int item = Integer.parseInt(scan.next());
         if (yourClass.inventory().get(item).type().contains("Healing")) {
-            yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.inventory().get(item).value());
+            yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.inventory().get(item).cost());
             checkHP(yourClass);
+            return 4;
         } else if (yourClass.inventory().get(item).type().contains("Back")) {
-            yourTurn(yourClass, enemy, tempMyHP, resetActionPoints, "Returned from inventory");
+            return 0;
+        } else {
+            return 4;
         }
     }
 

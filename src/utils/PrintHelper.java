@@ -31,6 +31,19 @@ public class PrintHelper {
     }
 
     /**
+     * Helper method to print users stats out. contains index
+     *
+     * @param stats list of stats
+     */
+    public void printClassStatsWithNums(List<Stat> stats) {
+        System.out.println("\nThese are the stats for your class, with their current value.");
+        int index = 0;
+        for (Stat stat : stats) {
+            System.out.println(index++ + ": " + stat.getStatName() + ": " + stat.getStatValue());
+        }
+    }
+
+    /**
      * Helper method to print users abilities out.
      *
      * @param abilities list of abilities
@@ -42,6 +55,12 @@ public class PrintHelper {
         }
     }
 
+    /**
+     * Nicely print combat options
+     *
+     * @param abilities users abilities
+     * @param inventory users inventory
+     */
     public void printCombatOptions(List<IAbility> abilities, List<IItem> inventory) {
         System.out.println("\nThese are your options");
         int index = 0;
@@ -50,14 +69,24 @@ public class PrintHelper {
         }
     }
 
+    /**
+     * Prints the users inventory
+     *
+     * @param inventory
+     */
     public void printInventory(List<IItem> inventory) {
         System.out.println("\nThese are your options");
         int index = 0;
         for (IItem item : inventory) {
-            System.out.println(index++ + ": " + item.name() + " Type: " + item.type() + " Cost: " + item.value());
+            System.out.println(index++ + ": " + item.name() + " Type: " + item.type() + " Cost: " + item.cost());
         }
     }
 
+    /**
+     * Prints the !commands
+     *
+     * @param commands
+     */
     public void printAvailableCommands(List<ICommand> commands) {
         System.out.println("\nThese are the avaiblable commands");
         for (ICommand command : commands) {
@@ -65,6 +94,9 @@ public class PrintHelper {
         }
     }
 
+    /**
+     * Prints all available classes during statup
+     */
     public void printAvailableClasses() {
         System.out.println("You have the choice of choosing the following classes:");
         System.out.println("The mighty Warrior! - To choose type \"Warrior\"");
@@ -72,6 +104,11 @@ public class PrintHelper {
         System.out.println("The wise Wizard! - To choose type \"Wizard\" - not working");
     }
 
+    /**
+     * Prints available quests
+     *
+     * @param quests
+     */
     public void printAvailableQuests(List<IQuest> quests) {
         System.out.println("\nThese are your available Quests");
         int index = 0;

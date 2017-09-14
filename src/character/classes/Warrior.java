@@ -10,14 +10,11 @@ import character.item.Weapon;
 import character.Stat;
 import character.abilities.CommonAbility;
 import character.abilities.IAbility;
-import character.abilities.DefensiveAbility;
 import character.item.IItem;
 import character.item.Potion;
-import character.item.QuestItem;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import utils.LevelUpHelper;
 
 /**
  *
@@ -30,6 +27,11 @@ public class Warrior implements IClass {
     private Weapon offHand;
     private List<IAbility> abilities;
     private List<IItem> inventory;
+    private LevelUpHelper leveler;
+
+    public Warrior(LevelUpHelper leveler) {
+        this.leveler = leveler;
+    }
 
     @Override
     public void initClass() {
@@ -76,9 +78,11 @@ public class Warrior implements IClass {
 
     @Override
     public void onLevelUp(int exp) {
-        //TODO - get user to interact and choose which stat to use
-        System.out.println("\nYou have leveled up, you will now upgrade strength");
-        upgradeStat(stats, 4, true);
+        System.out.println("\nYou have leveled up!");
+        //User interaction for stat point increase
+        int statInput;
+        statInput = leveler.statChooser(stats);
+        upgradeStat(stats, statInput, true);
 
         //Experience points - if more than 100 exp, level up and check again
         exp -= 100;
@@ -190,7 +194,7 @@ public class Warrior implements IClass {
 
     private void initInventory() {
         inventory = new ArrayList<>();
-        Potion back = new Potion("Back", "Back", 0, 0);
+        Potion back = new Potion("Back", "Back", 0);
 
         inventory.add(back);
     }
