@@ -19,7 +19,7 @@ public class CombatHandler {
     private final PrintHelper printer = new PrintHelper();
     private final CommandHandler commander = new CommandHandler();
     private final CleanOutputHelper cleaner = new CleanOutputHelper();
-    private String hp = "Health Points";
+    private final String hp = "Health Points";
 
     public CombatHandler(Scanner scan) {
         this.scan = scan;
@@ -99,25 +99,27 @@ public class CombatHandler {
      * @param tempMyHP your current health points
      */
     private int checkAbility(IClass yourClass, int input, IEnemy enemy, int tempMyHP, int resetActionPoints) {
-        if (yourClass.abilities().get(input).getType().equals("Offensive")) {
-            enemy.hit(yourClass.abilities().get(input).getValue());
-            return yourClass.abilities().get(input).getCost();
-        } else if (yourClass.abilities().get(input).getType().equals("Defensive")) {
-            yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.abilities().get(input).getValue());
-            checkHP(yourClass);
-            return yourClass.abilities().get(input).getCost();
-        } else {
-            if (yourClass.abilities().get(input).getName().equals("Inventory")) {
-                printer.printInventory(yourClass.inventory());
-                return inventorySelector(yourClass, tempMyHP, enemy, resetActionPoints);
-            } else {
-                return yourClass.getSingleStat("Ability Points").getStatValue();
-            }
+        switch (yourClass.abilities().get(input).getType()) {
+            case "Offensive":
+                enemy.hit(yourClass.abilities().get(input).getValue());
+                return yourClass.abilities().get(input).getCost();
+            case "Defensive":
+                yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.abilities().get(input).getValue());
+                checkHP(yourClass);
+                return yourClass.abilities().get(input).getCost();
+            default:
+                if (yourClass.abilities().get(input).getName().equals("Inventory")) {
+                    printer.printInventory(yourClass.inventory());
+                    return inventorySelector(yourClass, tempMyHP, enemy, resetActionPoints);
+                } else {
+                    return yourClass.getSingleStat("Ability Points").getStatValue();
+                }
         }
     }
 
     /**
-     * Choose which item in inventory to use
+     * Choose which item in inventory to use. Checks type of item and act
+     * accordingly, returning the cost and adding the effects
      *
      * @param yourClass
      * @param tempMyHP
@@ -128,13 +130,11 @@ public class CombatHandler {
     private int inventorySelector(IClass yourClass, int tempMyHP, IEnemy enemy, int resetActionPoints) throws NumberFormatException {
         int item = Integer.parseInt(scan.next());
         if (yourClass.inventory().get(item).type().contains("Healing")) {
-            yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.inventory().get(item).value());
+            yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.inventory().get(item).cost());
             checkHP(yourClass);
             return 4;
         } else if (yourClass.inventory().get(item).type().contains("Back")) {
-            //TODO - Fix cost
             return 0;
-//            yourTurn(yourClass, enemy, tempMyHP, resetActionPoints, "Returned from inventory");
         } else {
             return 4;
         }

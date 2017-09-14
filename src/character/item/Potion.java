@@ -13,28 +13,25 @@ public class Potion implements IItem {
 
     private String name;
     private String type;
-    private int amount;
-    private int value;
+    private int cost;
 
-    public Potion(String name, String type, int amount) {
+    public Potion(String name, String type) {
         this.name = name;
         this.type = type;
-        this.amount = amount;
     }
 
     /**
-     * Use this if you want different default value for cost
+     * Use this if you want different default value for cost Cost should not be
+     * bigger than 4
      *
      * @param name
      * @param type
-     * @param amount
-     * @param value
+     * @param cost
      */
-    public Potion(String name, String type, int amount, int value) {
+    public Potion(String name, String type, int cost) {
         this.name = name;
         this.type = type;
-        this.amount = amount;
-        this.value = value;
+        this.cost = cost;
     }
 
     @Override
@@ -47,10 +44,6 @@ public class Potion implements IItem {
         return type;
     }
 
-    public int amount() {
-        return amount;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -59,13 +52,14 @@ public class Potion implements IItem {
         this.type = type;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
+    /**
+     * OBS - Cost will default to 4 during combat So no reason to add cost > 4
+     *
+     * @return cost
+     */
     @Override
-    public int value() {
-        return 4;
+    public int cost() {
+        return cost;
     }
 
 }

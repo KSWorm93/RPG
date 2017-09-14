@@ -32,7 +32,7 @@ public class Warrior implements IClass {
     public Warrior(LevelUpHelper leveler) {
         this.leveler = leveler;
     }
-    
+
     @Override
     public void initClass() {
         initStats();
@@ -83,7 +83,7 @@ public class Warrior implements IClass {
         int statInput;
         statInput = leveler.statChooser(stats);
         upgradeStat(stats, statInput, true);
-        
+
         //Experience points - if more than 100 exp, level up and check again
         exp -= 100;
         stats.get(2).setStatValue(exp);
@@ -194,7 +194,7 @@ public class Warrior implements IClass {
 
     private void initInventory() {
         inventory = new ArrayList<>();
-        Potion back = new Potion("Back", "Back", 0, 0);
+        Potion back = new Potion("Back", "Back", 0);
 
         inventory.add(back);
     }

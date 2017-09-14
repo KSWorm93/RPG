@@ -67,7 +67,7 @@ public class PrintHelper {
         System.out.println("\nThese are your options");
         int index = 0;
         for (IItem item : inventory) {
-            System.out.println(index++ + ": " + item.name() + " Type: " + item.type() + " Cost: " + item.value());
+            System.out.println(index++ + ": " + item.name() + " Type: " + item.type() + " Cost: " + item.cost());
         }
     }
 
