@@ -46,6 +46,11 @@ public class CombatHandler {
         } while (!(tempMyHP <= 0 || enemy.healthPoints() <= 0));
     }
 
+    /**
+     * Prints enemy turn outputs
+     *
+     * @param enemy
+     */
     private void enemyTurn(IEnemy enemy) {
         System.out.println("\nEnemy struck first..");
         System.out.println("\nEnemy harmed you for: " + enemy.hitYou());
@@ -85,13 +90,19 @@ public class CombatHandler {
         }
     }
 
+    /**
+     * Prints health points
+     *
+     * @param yourClass
+     * @param enemy
+     */
     private void printHealthPoints(IClass yourClass, IEnemy enemy) {
         System.out.println("Your Health Points are: " + yourClass.getSingleStat(hp).getStatValue());
         System.out.println("Enemy Health Points are: " + enemy.healthPoints());
     }
 
     /**
-     * Method to check ability type, and act accordingly
+     * Check ability type, and act accordingly
      *
      * @param yourClass
      * @param input input to get ability
@@ -110,7 +121,7 @@ public class CombatHandler {
             default:
                 if (yourClass.abilities().get(input).getName().equals("Inventory")) {
                     printer.printInventory(yourClass.inventory());
-                    return inventorySelector(yourClass, tempMyHP, enemy, resetActionPoints);
+                    return inventorySelector(yourClass, tempMyHP);
                 } else {
                     return yourClass.getSingleStat("Ability Points").getStatValue();
                 }
@@ -127,7 +138,7 @@ public class CombatHandler {
      * @param resetActionPoints
      * @throws NumberFormatException
      */
-    private int inventorySelector(IClass yourClass, int tempMyHP, IEnemy enemy, int resetActionPoints) throws NumberFormatException {
+    private int inventorySelector(IClass yourClass, int tempMyHP) throws NumberFormatException {
         int item = Integer.parseInt(scan.next());
         if (yourClass.inventory().get(item).type().contains("Healing")) {
             yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.inventory().get(item).cost());

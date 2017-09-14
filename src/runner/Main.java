@@ -81,6 +81,11 @@ public class Main {
 
     }
 
+    /**
+     * Check for !command and check if move is valid
+     *
+     * @param input move to check
+     */
     private static void checkInput(String input) {
         if (commandHandler.checkForCommand(input)) {
             commandHandler.executeCommand(input);
@@ -91,6 +96,12 @@ public class Main {
         }
     }
 
+    /**
+     * If valid move - questHandler.executeQuest() is called and starts the
+     * quest.
+     *
+     * @param move
+     */
     private static void checkMove(String move) {
         questHandler.executeQuest(story.getSingleQuest(Integer.parseInt(move)), myClass.getChosenClass());
     }
