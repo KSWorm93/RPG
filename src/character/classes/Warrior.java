@@ -10,13 +10,11 @@ import character.item.Weapon;
 import character.Stat;
 import character.abilities.CommonAbility;
 import character.abilities.IAbility;
-import character.abilities.DefensiveAbility;
 import character.item.IItem;
 import character.item.Potion;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import utils.LevelUpHelper;
 
 /**
  *
@@ -28,7 +26,12 @@ public class Warrior implements IClass {
     private Weapon mainHand;
     private Weapon offHand;
     private List<IAbility> abilities;
-    private Set<IItem> inventory;
+    private List<IItem> inventory;
+    private LevelUpHelper leveler;
+
+    public Warrior(LevelUpHelper leveler) {
+        this.leveler = leveler;
+    }
 
     @Override
     public void initClass() {
@@ -54,7 +57,7 @@ public class Warrior implements IClass {
     }
 
     @Override
-    public Set<IItem> inventory() {
+    public List<IItem> inventory() {
         return inventory;
     }
 
@@ -74,20 +77,44 @@ public class Warrior implements IClass {
     }
 
     @Override
-    public void onLevelUp() {
-        //TODO - get user to interact and choose which stat to use
-        System.out.println("\nYou have leveled up, you will now upgrade strength");
-        upgradeStat(stats, 4, true);
-        stats.get(2).setStatValue(0);
+    public void onLevelUp(int exp) {
+        System.out.println("\nYou have leveled up!");
+        //User interaction for stat point increase
+        int statInput;
+        statInput = leveler.statChooser(stats);
+        upgradeStat(stats, statInput, true);
+
+        //Experience points - if more than 100 exp, level up and check again
+        exp -= 100;
+        stats.get(2).setStatValue(exp);
+        checkExp(exp);
     }
 
     @Override
     public void addReward(int exp, String statPoint, IItem item, IAbility ability) {
-        int temp = stats.get(2).getStatValue();
-        temp += exp;
-        stats.get(2).setStatValue(temp);
-
+        //Experience
+        int tempExp = stats.get(2).getStatValue();
+        tempExp += exp;
+        stats.get(2).setStatValue(tempExp);
         checkExp(stats.get(2).getStatValue());
+
+        //Stats
+        if (statPoint != null) {
+            int statLoc = stats.indexOf(getSingleStat(statPoint));
+            int tempStat = stats.get(statLoc).getStatValue();
+            tempStat++;
+            stats.get(statLoc).setStatValue(tempStat);
+        }
+
+        //Items
+        if (item != null) {
+            inventory.add(item);
+        }
+
+        //Abilities
+        if (ability != null) {
+            abilities.add(ability);
+        }
     }
 
     @Override
@@ -98,12 +125,6 @@ public class Warrior implements IClass {
             }
         }
         return null;
-    }
-
-    private void checkExp(int exp) {
-        if (exp >= 100) {
-            onLevelUp();
-        }
     }
 
     /**
@@ -141,7 +162,7 @@ public class Warrior implements IClass {
         Stat healthPoints = new Stat("Health Points", 100);
         Stat strength = new Stat("Strength", 10);
         Stat agility = new Stat("Agility", 6);
-        Stat inteligence = new Stat("Inteligence", 6);
+        Stat intelligence = new Stat("Intelligence", 6);
 
         stats.add(abilityPoints);
         stats.add(level);
@@ -149,7 +170,7 @@ public class Warrior implements IClass {
         stats.add(healthPoints);
         stats.add(strength);
         stats.add(agility);
-        stats.add(inteligence);
+        stats.add(intelligence);
     }
 
     /**
@@ -163,19 +184,19 @@ public class Warrior implements IClass {
     private void initAbilities() {
         abilities = new ArrayList<>();
         OffensiveAbility slash = new OffensiveAbility("Offensive", "Slash", 2, 4, 1);
-        DefensiveAbility firstAid = new DefensiveAbility("Defensive", "First Aid", 4, 10, 1);
         CommonAbility pass = new CommonAbility("Common", "Pass", 0, 0, 0);
+        CommonAbility inventory = new CommonAbility("Common", "Inventory", 0, 0, 0);
 
         abilities.add(pass);
+        abilities.add(inventory);
         abilities.add(slash);
-        abilities.add(firstAid);
     }
 
     private void initInventory() {
-        inventory = new HashSet<>();
-        Potion tinyHealingPotion = new Potion("Tiny Healing Potion", "Healing Potion", 10);
+        inventory = new ArrayList<>();
+        Potion back = new Potion("Back", "Back", 0);
 
-        inventory.add(tinyHealingPotion);
+        inventory.add(back);
     }
 
 }

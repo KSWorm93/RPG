@@ -10,7 +10,6 @@ import character.Stat;
 import character.abilities.IAbility;
 import character.item.IItem;
 import java.util.List;
-import java.util.Set;
 
 /**
  *
@@ -26,7 +25,7 @@ public interface IClass {
 
     public List<IAbility> abilities(); //List of abilities the character has
 
-    public Set<IItem> inventory(); //All the items
+    public List<IItem> inventory(); //All the items
 
     public Weapon mainHand(); //Mainhand weapon
 
@@ -34,10 +33,21 @@ public interface IClass {
 
     public int abilityPoints(); //Points to spend on moves during combat
 
-    public void onLevelUp(); //Decide stat upgrade
-    
+    public void onLevelUp(int exp); //Decide stat upgrade
+
     public void addReward(int exp, String statPoint, IItem item, IAbility ability);
-    
+
     public Stat getSingleStat(String nameOfStat);
-    
+
+    /**
+     * Check if exp stat is greater than 100 then call onLevelUp() if it is
+     *
+     * @param exp experience stat
+     */
+    default public void checkExp(int exp) {
+        if (exp >= 100) {
+            onLevelUp(exp);
+        }
+    }
+;
 }

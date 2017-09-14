@@ -21,16 +21,29 @@ public class QuestHandler {
     private final CommandHandler commander = new CommandHandler();
     private CombatHandler combatter;
     private final StoryHandler story;
+    private final CleanOutputHelper cleaner = new CleanOutputHelper();
 
     public QuestHandler(Scanner scan, StoryHandler story) {
         this.scan = scan;
         this.story = story;
     }
 
+    /**
+     * Starts the quest
+     *
+     * @param quest quest to start
+     * @param myClass user class to do the quest
+     */
     public void executeQuest(IQuest quest, IClass myClass) {
         quest(quest, myClass);
     }
 
+    /**
+     * Actual method that execues the quest
+     *
+     * @param quest
+     * @param myClass
+     */
     private void quest(IQuest quest, IClass myClass) {
         int experience = 0;
         int index = 0;
@@ -48,11 +61,21 @@ public class QuestHandler {
             index++;
         }
         questCompleted(quest);
-        myClass.addReward(experience, null, null, null);
+        myClass.addReward(experience, quest.statReward(), quest.itemReward(), quest.abilityReward());
         story.removeQuest(quest);
-        
+        if (quest.questUnlocks() != null) {
+            story.addQuests(quest.questUnlocks());
+        }
+
     }
 
+    /**
+     * Handles the combat part of a quest
+     *
+     * @param quest
+     * @param index enemy based on how far in quest you are
+     * @param myClass
+     */
     private void combatMove(IQuest quest, int index, IClass myClass) {
         combatter = new CombatHandler(scan);
 
@@ -62,7 +85,13 @@ public class QuestHandler {
         combatter.startCombat(myClass, enemy);
     }
 
+    /**
+     * If quest move is not a combat scenario
+     *
+     * @param move
+     */
     private void notCombatMove(IMove move) {
+        cleaner.waitClear();
         String input;
         switch (move.numberOfMoves()) {
             case 1:
@@ -83,12 +112,23 @@ public class QuestHandler {
         }
     }
 
+    /**
+     * Executed when the quest is completed Prints quest name
+     *
+     * @param quest
+     */
     private void questCompleted(IQuest quest) {
         System.out.println("\nYou have succesfully completed: "
                 + quest.questName()
                 + "\nCongratulations. Rewards have been added to you");
     }
 
+    /**
+     * Checks whether move is a !command, or print user choice
+     *
+     * @param path
+     * @param returnMove
+     */
     private void checkMove(String path, IMove returnMove) {
         if (commander.checkForCommand(path)) {
             commander.executeCommand(path);
@@ -98,6 +138,12 @@ public class QuestHandler {
         }
     }
 
+    /**
+     * Prints user choice
+     *
+     * @param path
+     * @throws NumberFormatException
+     */
     private void whatUserDid(String path) throws NumberFormatException {
         switch (Integer.parseInt(path)) {
             case 1:

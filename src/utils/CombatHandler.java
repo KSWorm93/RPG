@@ -18,7 +18,8 @@ public class CombatHandler {
     private final Scanner scan;
     private final PrintHelper printer = new PrintHelper();
     private final CommandHandler commander = new CommandHandler();
-    private String hp = "Health Points";
+    private final CleanOutputHelper cleaner = new CleanOutputHelper();
+    private final String hp = "Health Points";
 
     public CombatHandler(Scanner scan) {
         this.scan = scan;
@@ -31,21 +32,28 @@ public class CombatHandler {
      * @param enemy the enemy - that you are fighting against
      */
     public void startCombat(IClass yourClass, IEnemy enemy) {
-        System.out.println("Your Health Points are: " + yourClass.getSingleStat(hp).getStatValue());
-        System.out.println("Enemy Health Points are: " + enemy.healthPoints());
         int tempMyHP;
 
         do {
+            cleaner.waitClear();
+            printHealthPoints(yourClass, enemy);
             tempMyHP = yourClass.stats().get(3).getStatValue();
-            System.out.println("Enemy harmed you for: " + enemy.hitYou());
+            enemyTurn(enemy);
             yourClass.getSingleStat(hp).setStatValue(tempMyHP - 2);
-
-            yourTurn(yourClass, enemy, tempMyHP, yourClass.abilityPoints());
-
-            System.out.println("Your Health Points are: " + yourClass.getSingleStat(hp).getStatValue());
-            System.out.println("Enemy Health Points are: " + enemy.healthPoints());
+            cleaner.waitForEnter();
+            yourTurn(yourClass, enemy, tempMyHP, yourClass.abilityPoints(), "");
 
         } while (!(tempMyHP <= 0 || enemy.healthPoints() <= 0));
+    }
+
+    /**
+     * Prints enemy turn outputs
+     *
+     * @param enemy
+     */
+    private void enemyTurn(IEnemy enemy) {
+        System.out.println("\nEnemy struck first..");
+        System.out.println("\nEnemy harmed you for: " + enemy.hitYou());
     }
 
     /**
@@ -56,13 +64,16 @@ public class CombatHandler {
      * @param tempMyHP your current health points
      * @param resetActionPoint your current ability points
      */
-    private void yourTurn(IClass yourClass, IEnemy enemy, int tempMyHP, int resetActionPoint) {
+    private void yourTurn(IClass yourClass, IEnemy enemy, int tempMyHP, int resetActionPoint, String msg) {
         String input;
 
-        while (resetActionPoint > 0) {
+        if (resetActionPoint > 0) {
+            cleaner.clear();
+            printHealthPoints(yourClass, enemy);
             System.out.println("\nYour turn");
             printer.printCombatOptions(yourClass.abilities(), yourClass.inventory());
-            System.out.println("You have:" + resetActionPoint + " Ability Points remaining for this turn.");
+            System.out.println("You have " + resetActionPoint + " Ability Points remaining for this turn.");
+            System.out.println(msg);
             input = scan.next(); // to stop and make user input
 
             if (commander.checkForCommand(String.valueOf(input))) {
@@ -70,33 +81,84 @@ public class CombatHandler {
             }
 
             checkAP(yourClass, Integer.parseInt(input), resetActionPoint, enemy, tempMyHP);
-            checkAbility(yourClass, Integer.parseInt(input), enemy, tempMyHP);
+            resetActionPoint -= checkAbility(yourClass, Integer.parseInt(input), enemy, tempMyHP, resetActionPoint);
 
             if (enemy.healthPoints() <= 0) {
-                break;
+                return;
             }
-
-            resetActionPoint -= yourClass.abilities().get(Integer.parseInt(input)).getCost();
+            yourTurn(yourClass, enemy, tempMyHP, resetActionPoint, "");
         }
     }
 
     /**
-     * Method to check ability type, and act accordingly
+     * Prints health points
+     *
+     * @param yourClass
+     * @param enemy
+     */
+    private void printHealthPoints(IClass yourClass, IEnemy enemy) {
+        System.out.println("Your Health Points are: " + yourClass.getSingleStat(hp).getStatValue());
+        System.out.println("Enemy Health Points are: " + enemy.healthPoints());
+    }
+
+    /**
+     * Check ability type, and act accordingly
      *
      * @param yourClass
      * @param input input to get ability
      * @param enemy enemy to hit if offensive ability
      * @param tempMyHP your current health points
      */
-    private void checkAbility(IClass yourClass, int input, IEnemy enemy, int tempMyHP) {
-        if (yourClass.abilities().get(input).getType().equals("Offensive")) {
-            System.out.println("\nYou hit " + enemy.name() + " for: " + yourClass.abilities().get(input).getValue());
-            enemy.hit(yourClass.abilities().get(input).getValue());
-        } else {
-            if (yourClass.abilities().get(input).getType().equals("Defensive")) {
-                System.out.println("You healed yourself for: " + yourClass.abilities().get(input).getValue());
+    private int checkAbility(IClass yourClass, int input, IEnemy enemy, int tempMyHP, int resetActionPoints) {
+        switch (yourClass.abilities().get(input).getType()) {
+            case "Offensive":
+                enemy.hit(yourClass.abilities().get(input).getValue());
+                return yourClass.abilities().get(input).getCost();
+            case "Defensive":
                 yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.abilities().get(input).getValue());
-            }
+                checkHP(yourClass);
+                return yourClass.abilities().get(input).getCost();
+            default:
+                if (yourClass.abilities().get(input).getName().equals("Inventory")) {
+                    printer.printInventory(yourClass.inventory());
+                    return inventorySelector(yourClass, tempMyHP);
+                } else {
+                    return yourClass.getSingleStat("Ability Points").getStatValue();
+                }
+        }
+    }
+
+    /**
+     * Choose which item in inventory to use. Checks type of item and act
+     * accordingly, returning the cost and adding the effects
+     *
+     * @param yourClass
+     * @param tempMyHP
+     * @param enemy
+     * @param resetActionPoints
+     * @throws NumberFormatException
+     */
+    private int inventorySelector(IClass yourClass, int tempMyHP) throws NumberFormatException {
+        int item = Integer.parseInt(scan.next());
+        if (yourClass.inventory().get(item).type().contains("Healing")) {
+            yourClass.getSingleStat(hp).setStatValue(tempMyHP + yourClass.inventory().get(item).cost());
+            checkHP(yourClass);
+            return 4;
+        } else if (yourClass.inventory().get(item).type().contains("Back")) {
+            return 0;
+        } else {
+            return 4;
+        }
+    }
+
+    /**
+     * Method to check whether max hp is reached, and if it is, set it to max hp
+     *
+     * @param yourClass yourclass to get hp stat
+     */
+    private void checkHP(IClass yourClass) {
+        if (yourClass.getSingleStat(hp).getStatValue() >= 100) {
+            yourClass.getSingleStat(hp).setStatValue(100);
         }
     }
 
@@ -112,9 +174,8 @@ public class CombatHandler {
      */
     private void checkAP(IClass yourClass, int input, int resetActionPoint, IEnemy enemy, int tempMyHP) {
         if (yourClass.abilities().get(input).getCost() > resetActionPoint) {
-            System.out.println("\nYou dont have enough Ability Points to do this action."
-                    + "\nTry something else");
-            yourTurn(yourClass, enemy, tempMyHP, resetActionPoint);
+            String msg = "\nYou dont have enough Ability Points to do this action\nTry something else";
+            yourTurn(yourClass, enemy, tempMyHP, resetActionPoint, msg);
         }
     }
 

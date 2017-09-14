@@ -12,6 +12,7 @@ import commands.Help;
 import commands.ICommand;
 import commands.LoadGame;
 import commands.SaveGame;
+import commands.Tip;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,7 @@ public class CommandHandler {
         commands.add(new LoadGame());
         commands.add(new ClassInformation());
         commands.add(new Exit());
+        commands.add(new Tip());
     }
 
     public static List<ICommand> getCommands() {
@@ -51,12 +53,7 @@ public class CommandHandler {
     }
 
     public boolean checkForCommand(String command) {
-        if (command.contains("!")) {
-            System.out.println("\ncommand detected");
-            return true;
-        } else {
-            return false;
-        }
+        return command.contains("!");
     }
 
 }

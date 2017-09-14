@@ -65,4 +65,14 @@ public class RandomEncounter implements IQuest {
         return randomEnemies.get(new Random().nextInt(randomEnemies.size()));
     }
 
+    @Override
+    public IQuest questInstance() {
+        return new RandomEncounter();
+    }
+
+    @Override
+    public List<IQuest> questUnlocks() {
+        return null;
+    }
+
 }

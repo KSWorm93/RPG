@@ -11,7 +11,6 @@ import character.classes.Rogue;
 import character.classes.Warrior;
 import character.classes.Wizard;
 import java.util.List;
-import quests.IQuest;
 
 /**
  *
@@ -20,11 +19,21 @@ import quests.IQuest;
 public class ClassHandler {
 
     private static IClass myClass;
+    private final LevelUpHelper leveler;
 
+    public ClassHandler(LevelUpHelper leveler) {
+        this.leveler = leveler;
+    }
+
+    /**
+     * Choose which class to use
+     *
+     * @param chosen
+     */
     public void selectClass(String chosen) {
         switch (chosen) {
             case "Warrior":
-                myClass = new Warrior();
+                myClass = new Warrior(leveler);
                 break;
             case "Rogue":
                 myClass = new Rogue();
@@ -37,18 +46,22 @@ public class ClassHandler {
         }
     }
 
+    /**
+     * Get the chosen class
+     *
+     * @return class
+     */
     public IClass getChosenClass() {
         return myClass;
     }
-    
-    public static List<Stat> getStats(){
+
+    /**
+     * Get class' stats
+     *
+     * @return List<Stat>
+     */
+    public static List<Stat> getStats() {
         return myClass.stats();
-    }
-    
-    public void checkLevelUp(){
-        if(myClass.stats().get(2).getStatValue() >= 100){
-            myClass.onLevelUp();
-        }
     }
 
 }
