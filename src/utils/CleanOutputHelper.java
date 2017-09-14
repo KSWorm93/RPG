@@ -24,8 +24,7 @@ public class CleanOutputHelper {
     }
 
     /**
-     * Moves old outputs out of the way.
-     * They can be seen by scrolling up.
+     * Moves old outputs out of the way. They can be seen by scrolling up.
      */
     public void clear() {
         clearScreen();
@@ -39,6 +38,9 @@ public class CleanOutputHelper {
         clearScreen();
     }
 
+    /**
+     * Wait until user has pressed enter
+     */
     private void waitEnter() {
         System.out.println("\nPress enter to continue.");
         String enter;
@@ -51,15 +53,32 @@ public class CleanOutputHelper {
         }
     }
 
+    /**
+     * Clear commands for windows and unix/linux systems
+     */
     private void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        try {
+            final String os = System.getProperty("os.name");
+
+            if (os.contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                System.out.print("\033[H\033[2J");
+                System.out.flush();
+            }
+        } catch (final Exception e) {
+            //  Handle any exceptions.
+        }
     }
-    
-    private void checkForCommand(String input){
-        if(commander.checkForCommand(input)){
+
+    /**
+     * Check in input is a command
+     * @param input 
+     */
+    private void checkForCommand(String input) {
+        if (commander.checkForCommand(input)) {
             commander.executeCommand(input);
-        } 
+        }
     }
 
 }
