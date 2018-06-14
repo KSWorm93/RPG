@@ -7,13 +7,15 @@ package character.classes;
 
 import character.abilities.OffensiveAbility;
 import character.item.Weapon;
-import character.Stat;
+import character.stats.Stat;
 import character.abilities.CommonAbility;
 import character.abilities.IAbility;
 import character.item.IItem;
 import character.item.Potion;
 import java.util.ArrayList;
 import java.util.List;
+
+import character.stats.StatType;
 import utils.LevelUpHelper;
 
 /**
@@ -28,6 +30,7 @@ public class Warrior implements IClass {
     private List<IAbility> abilities;
     private List<IItem> inventory;
     private LevelUpHelper leveler;
+    private StatType type = new StatType();
 
     public Warrior(LevelUpHelper leveler) {
         this.leveler = leveler;
@@ -156,13 +159,13 @@ public class Warrior implements IClass {
      */
     private void initStats() {
         stats = new ArrayList<>();
-        Stat abilityPoints = new Stat("Ability Points", 10);
-        Stat level = new Stat("Level", 1);
-        Stat experiencePoints = new Stat("Experience Points", 0);
-        Stat healthPoints = new Stat("Health Points", 100);
-        Stat strength = new Stat("Strength", 10);
-        Stat agility = new Stat("Agility", 6);
-        Stat intelligence = new Stat("Intelligence", 6);
+        Stat abilityPoints = new Stat(type.abilityPoints(), 10);
+        Stat level = new Stat(type.level(), 1);
+        Stat experiencePoints = new Stat(type.experiencePoints(), 0);
+        Stat healthPoints = new Stat(type.healthPoints(), 100);
+        Stat strength = new Stat(type.strength(), 10);
+        Stat agility = new Stat(type.agility(), 6);
+        Stat intelligence = new Stat(type.intelligence(), 6);
 
         stats.add(abilityPoints);
         stats.add(level);

@@ -5,7 +5,7 @@
  */
 package enemies;
 
-import character.Stat;
+import character.stats.Stat;
 
 /**
  *

@@ -7,6 +7,8 @@ package utils;
 
 import character.classes.IClass;
 import enemies.IEnemy;
+
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -31,7 +33,7 @@ public class CombatHandler {
      * @param yourClass your class - that is going to fight
      * @param enemy the enemy - that you are fighting against
      */
-    public void startCombat(IClass yourClass, IEnemy enemy) {
+    public void startCombat(IClass yourClass, IEnemy enemy, List<String> swears) {
         int tempMyHP;
 
         do {
@@ -134,8 +136,6 @@ public class CombatHandler {
      *
      * @param yourClass
      * @param tempMyHP
-     * @param enemy
-     * @param resetActionPoints
      * @throws NumberFormatException
      */
     private int inventorySelector(IClass yourClass, int tempMyHP) throws NumberFormatException {

@@ -3,25 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package quests.classquest.rogue;
+package quests.intro;
 
-import enemies.IEnemy;
-import enemies.SkeletonWarrior;
+import character.stats.StatType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import quests.IQuest;
 import quests.encounters.DialogueEncounter;
-import quests.encounters.Encounter;
 import quests.encounters.IEncounter;
 
 /**
  * @author kasper
  */
-public class RogueIntro implements IQuest {
+public class Quests implements IQuest {
 
-    private String questName = "Class tutorial - Rogue";
+    private String questName = "Introduction Quest - Quests";
+    private StatType type = new StatType();
 
     @Override
     public String questName() {
@@ -31,23 +30,29 @@ public class RogueIntro implements IQuest {
     @Override
     public List<IEncounter> questDialogue() {
         List<IEncounter> encounters = new ArrayList<>();
-        List<IEnemy> enemies = new ArrayList<>();
-        enemies.add(new SkeletonWarrior());
 
         encounters.add(new DialogueEncounter(
                 "You have started the quest: " + questName,
-                "You will here learn how to defeat enemies"));
-        encounters.add(new Encounter(true, enemies));
+                "This quest-chain will give you some basic " +
+                        "\nknowledge of how the game works"));
         encounters.add(new DialogueEncounter(
-                "Phew, tough one!",
-                "You have vanquished your foe!"));
+                "This quest has shown you the basic of the game",
+                "That the game works by giving you Quests. " +
+                        "\nHave fun :)"));
 
         return encounters;
     }
 
     @Override
     public IQuest questInstance() {
-        return new RogueIntro();
+        return new Quests();
+    }
+
+    @Override
+    public List<IQuest> questUnlocks() {
+        List<IQuest> quests = new ArrayList<>();
+        quests.add(new Stats());
+        return quests;
     }
 
 }

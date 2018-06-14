@@ -6,7 +6,7 @@
 package character.classes;
 
 import character.item.Weapon;
-import character.Stat;
+import character.stats.Stat;
 import character.abilities.IAbility;
 import character.item.IItem;
 import java.util.List;
@@ -16,6 +16,8 @@ import java.util.List;
  * @author kasper
  */
 public interface IClass {
+
+    //TODO - Limit inventory space when adding rewards
 
     public void initClass();
 
@@ -31,7 +33,7 @@ public interface IClass {
 
     public Weapon offHand(); //Offhand weapon
 
-    public int abilityPoints(); //Points to spend on moves during combat
+    public int abilityPoints(); //Points to spend on encounters during combat
 
     public void onLevelUp(int exp); //Decide stat upgrade
 

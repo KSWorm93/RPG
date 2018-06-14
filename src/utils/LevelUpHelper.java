@@ -5,7 +5,7 @@
  */
 package utils;
 
-import character.Stat;
+import character.stats.Stat;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,6 +14,9 @@ import java.util.Scanner;
  * @author mio
  */
 public class LevelUpHelper {
+
+
+    //TODO - unlocks based on current lvl
 
     PrintHelper printer;
     Scanner scan;

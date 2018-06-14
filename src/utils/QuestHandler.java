@@ -7,19 +7,19 @@ package utils;
 
 import character.classes.IClass;
 import enemies.IEnemy;
+
+import java.util.List;
 import java.util.Scanner;
+
 import quests.IQuest;
-import quests.moves.IMove;
+import quests.encounters.IEncounter;
 
 /**
- *
  * @author kasper
  */
 public class QuestHandler {
 
     private final Scanner scan;
-    private final CommandHandler commander = new CommandHandler();
-    private CombatHandler combatter;
     private final StoryHandler story;
     private final CleanOutputHelper cleaner = new CleanOutputHelper();
 
@@ -31,148 +31,54 @@ public class QuestHandler {
     /**
      * Starts the quest
      *
-     * @param quest quest to start
-     * @param myClass user class to do the quest
+     * @param quest   quest to start
+     * @param chosenClass user class to do the quest
      */
-    public void executeQuest(IQuest quest, IClass myClass) {
-        quest(quest, myClass);
+    public void executeQuest(IQuest quest, IClass chosenClass) {
+        quest(quest, chosenClass);
     }
 
     /**
-     * Actual method that execues the quest
+     * Actual method that executes the quest
      *
-     * @param quest
-     * @param myClass
+     * @param quest       currently active quest
+     * @param chosenClass player selected class
      */
-    private void quest(IQuest quest, IClass myClass) {
-        int experience = 0;
-        int index = 0;
+    private void quest(IQuest quest, IClass chosenClass) {
+        cleaner.clear();
 
-        for (String dialogue : quest.questDialogue()) {
-            System.out.println(dialogue);
-            IMove move = quest.questMoves().get(index);
-            if (move.encounter()) {
-                combatMove(quest, index, myClass);
-                experience += 5;
+        for (IEncounter encounter : quest.questDialogue()) {
+            if (encounter.encounter()) {
+                combatMove(encounter.enemies(), encounter, chosenClass);
             } else {
-                notCombatMove(move);
+                System.out.println(encounter.beforeDialogue());
+                System.out.println(encounter.afterDialogue());
             }
-            experience += 10;
-            index++;
+            cleaner.waitClear();
         }
-        questCompleted(quest);
-        myClass.addReward(experience, quest.statReward(), quest.itemReward(), quest.abilityReward());
+        chosenClass.addReward(quest.experienceReward(), quest.statReward(), quest.itemReward(), quest.abilityReward());
         story.removeQuest(quest);
         if (quest.questUnlocks() != null) {
             story.addQuests(quest.questUnlocks());
         }
-
     }
 
     /**
      * Handles the combat part of a quest
      *
-     * @param quest
-     * @param index enemy based on how far in quest you are
-     * @param myClass
+     * @param enemies     based on how far in quest you are
+     * @param chosenClass player selected class
      */
-    private void combatMove(IQuest quest, int index, IClass myClass) {
-        combatter = new CombatHandler(scan);
+    private void combatMove(List<IEnemy> enemies, IEncounter encounter, IClass chosenClass) {
+        CombatHandler combatant = new CombatHandler(scan);
 
-        IEnemy enemy = quest.enemies().get(index);
-        System.out.println("\nThere is an enemy blocking your way"
-                + "\nDefeat it to proceed");
-        combatter.startCombat(myClass, enemy);
-    }
-
-    /**
-     * If quest move is not a combat scenario
-     *
-     * @param move
-     */
-    private void notCombatMove(IMove move) {
-        cleaner.waitClear();
-        String input;
-        switch (move.numberOfMoves()) {
-            case 1:
-                singleOption();
-                input = scan.next();
-                checkMove(input, move);
-                break;
-            case 2:
-                twoOptions();
-                input = scan.next();
-                checkMove(input, move);
-                break;
-            default:
-                threeOptions();
-                input = scan.next();
-                checkMove(input, move);
-                break;
+        //TODO - Move those dialogue options to combatant?
+        for (IEnemy enemy : enemies) {
+            System.out.println(encounter.beforeDialogue());
+            System.out.println("I am the mighty " + enemy.name());
+            //TODO - Check startCombat() for matching dialogues
+            combatant.startCombat(chosenClass, enemy, encounter.encounterSwearing());
+            System.out.println(encounter.afterDialogue());
         }
     }
-
-    /**
-     * Executed when the quest is completed Prints quest name
-     *
-     * @param quest
-     */
-    private void questCompleted(IQuest quest) {
-        System.out.println("\nYou have succesfully completed: "
-                + quest.questName()
-                + "\nCongratulations. Rewards have been added to you");
-    }
-
-    /**
-     * Checks whether move is a !command, or print user choice
-     *
-     * @param path
-     * @param returnMove
-     */
-    private void checkMove(String path, IMove returnMove) {
-        if (commander.checkForCommand(path)) {
-            commander.executeCommand(path);
-            notCombatMove(returnMove);
-        } else {
-            whatUserDid(path);
-        }
-    }
-
-    /**
-     * Prints user choice
-     *
-     * @param path
-     * @throws NumberFormatException
-     */
-    private void whatUserDid(String path) throws NumberFormatException {
-        switch (Integer.parseInt(path)) {
-            case 1:
-                System.out.println("\nYou have chosen option 1");
-                break;
-            case 2:
-                System.out.println("\nYou have chosen option 2");
-                break;
-            default:
-                System.out.println("\nYou have chosen option 3");
-                break;
-        }
-    }
-
-    private void singleOption() {
-        System.out.println("\nYou have the option to move forward - press 1");
-    }
-
-    private void twoOptions() {
-        System.out.println("\nYou have 2 options");
-        System.out.println("press 1 to - Move forward");
-        System.out.println("press 2 to - Turn left");
-    }
-
-    private void threeOptions() {
-        System.out.println("\nYou have 3 options");
-        System.out.println("press 1 to - Move forward");
-        System.out.println("press 2 to - Turn left");
-        System.out.println("press 3 to - Turn right");
-    }
-
 }

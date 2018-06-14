@@ -11,7 +11,7 @@ import java.util.List;
 import quests.IQuest;
 import quests.classquest.rogue.RogueIntro;
 import quests.classquest.warrior.WarriorIntro;
-import quests.intro.Intro;
+import quests.intro.Quests;
 import quests.sidequest.RandomEncounter;
 
 /**
@@ -36,6 +36,7 @@ public class StoryHandler {
         }
     }
 
+    //TODO - Only remove if not contain repeatable??
     public void removeQuest(IQuest quest) {
         if (quest.questName().contains("REPEATABLE")) {
             quests.remove(quest);
@@ -58,13 +59,13 @@ public class StoryHandler {
     }
 
     private void rogueQuests() {
-        quests.add(new Intro());
+        quests.add(new Quests());
         quests.add(new RogueIntro());
         quests.add(new RandomEncounter());
     }
 
     private void warriorQuests() {
-        quests.add(new Intro());
+        quests.add(new Quests());
         quests.add(new WarriorIntro());
         quests.add(new RandomEncounter());
     }

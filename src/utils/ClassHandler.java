@@ -5,7 +5,7 @@
  */
 package utils;
 
-import character.Stat;
+import character.stats.Stat;
 import character.classes.IClass;
 import character.classes.Rogue;
 import character.classes.Warrior;
@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class ClassHandler {
 
-    private static IClass myClass;
+    private static IClass chosenClass;
     private final LevelUpHelper leveler;
 
     public ClassHandler(LevelUpHelper leveler) {
@@ -33,13 +33,13 @@ public class ClassHandler {
     public void selectClass(String chosen) {
         switch (chosen) {
             case "Warrior":
-                myClass = new Warrior(leveler);
+                chosenClass = new Warrior(leveler);
                 break;
             case "Rogue":
-                myClass = new Rogue();
+                chosenClass = new Rogue();
                 break;
             case "Wizard":
-                myClass = new Wizard();
+                chosenClass = new Wizard();
                 break;
             default:
                 break;
@@ -52,7 +52,7 @@ public class ClassHandler {
      * @return class
      */
     public IClass getChosenClass() {
-        return myClass;
+        return chosenClass;
     }
 
     /**
@@ -61,7 +61,7 @@ public class ClassHandler {
      * @return List<Stat>
      */
     public static List<Stat> getStats() {
-        return myClass.stats();
+        return chosenClass.stats();
     }
 
 }

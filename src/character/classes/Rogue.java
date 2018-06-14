@@ -6,7 +6,7 @@
 package character.classes;
 
 import character.item.Weapon;
-import character.Stat;
+import character.stats.Stat;
 import character.abilities.CommonAbility;
 import character.abilities.DefensiveAbility;
 import character.abilities.IAbility;
@@ -14,9 +14,7 @@ import character.abilities.OffensiveAbility;
 import character.item.IItem;
 import character.item.Potion;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  *

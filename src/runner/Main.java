@@ -6,6 +6,7 @@
 package runner;
 
 import java.util.Scanner;
+
 import utils.ClassHandler;
 import utils.CleanOutputHelper;
 import utils.CommandHandler;
@@ -15,7 +16,6 @@ import utils.QuestHandler;
 import utils.StoryHandler;
 
 /**
- *
  * @author kasper
  */
 public class Main {
@@ -25,7 +25,7 @@ public class Main {
     private static Scanner scan;
     private static String input;
     private static QuestHandler questHandler;
-    private static ClassHandler myClass;
+    private static ClassHandler chosenClass;
     private static StoryHandler story;
     private static CleanOutputHelper cleanOutput;
     private static LevelUpHelper leveler;
@@ -41,44 +41,74 @@ public class Main {
         questHandler = new QuestHandler(scan, story);
         cleanOutput = new CleanOutputHelper();
         leveler = new LevelUpHelper(printer, scan);
-        myClass = new ClassHandler(leveler);
+        chosenClass = new ClassHandler(leveler);
 
         commandHandler.initCommands();
         commandHandler.executeCommand("!about");
 
         cleanOutput.waitClear();
 
-        System.out.println("\nPlease choose your class");
+        characterCreation();
+        runGame();
+    }
+
+    //TODO - Fix interfaces, no need for public
+    //TODO - Make classes for all names of potions, stats, items, etc?
+    //TODO - JavaDoc on all methods
+    //TODO - Use printer instead of sout
+    //TODO - Fix helpers generating own instances
+    //TODO -    Use ones from main instead, dependency injection
+    //TODO - Fix comments around the project
+    //TODO -    No need to specify its a method or helper..
+    //TODO - Error handling all around.
+    //TODO - Add some more of the commands
+    //TODO - Add file save/load
+    //TODO - User interaction helper - to handle check move/command
+    //TODO - Difficulty story starts - Quests and stats
+    //TODO - Stat trainers - Quest with specific combat, based on stat
+    //TODO - Check quest repeats - unlocks, and difficulty - Helper class?
+    //TODO - Character class - Containing other elements?
+    //TODO -    Like abilities, classType, items, stats
+    //TODO -    Give name, age, eye colour, hair colour, etc??
+
+    /**
+     * Gives the user inputs for character creation
+     */
+    private static void characterCreation() {
+        printer.print("Please choose your class");
+        printer.print("By writing the name of the class and pressing enter\n");
         printer.printAvailableClasses();
-        myClass.selectClass(scan.next());
+        chosenClass.selectClass(scan.next());
 
-        System.out.println("\nYou have chosen the " + myClass.getChosenClass().className() + "! Let your journey begin!");
-        System.out.println("Creating your class...");
-        myClass.getChosenClass().initClass();
+        cleanOutput.clear();
+        printer.print("You have chosen the " + chosenClass.getChosenClass().className() + "! Let your journey begin!");
+        printer.print("Creating your class...");
+        chosenClass.getChosenClass().initClass();
 
-        story.initClassStoryline(myClass.getChosenClass());
-        //TODO - move quests adding out of main
-
-        cleanOutput.waitClear();
-
-        printer.printClassStats(myClass.getChosenClass().stats());
+        story.initClassStoryline(chosenClass.getChosenClass());
 
         cleanOutput.waitClear();
+        printer.printClassStats(chosenClass.getChosenClass().stats());
+        cleanOutput.waitClear();
+        printer.printClassAbilities(chosenClass.getChosenClass().abilities());
+        cleanOutput.waitForEnter();
+    }
 
-        printer.printClassAbilities(myClass.getChosenClass().abilities());
-
-        //Keep running game till exit command is given
+    /**
+     * Start the game up and keep it running
+     */
+    private static void runGame() {
         do {
-            cleanOutput.waitClear();
+            cleanOutput.clear();
 
-            System.out.println("\nMake a move");
-            System.out.println("Here are your options:");
+            printer.print("Make a move");
+            printer.print("Here are your options:\n");
             printer.printAvailableQuests(story.getQuests());
+
             input = scan.next();
             checkInput(input);
 
         } while (!input.equals("!exit"));
-
     }
 
     /**
@@ -88,7 +118,10 @@ public class Main {
      */
     private static void checkInput(String input) {
         if (commandHandler.checkForCommand(input)) {
+            cleanOutput.clear();
+            printer.print(input + " was registered\n");
             commandHandler.executeCommand(input);
+            cleanOutput.waitForEnter();
         } else if (input.matches("\\d+")) {
             checkMove(input);
         } else {
@@ -100,10 +133,10 @@ public class Main {
      * If valid move - questHandler.executeQuest() is called and starts the
      * quest.
      *
-     * @param move
+     * @param move move to check
      */
     private static void checkMove(String move) {
-        questHandler.executeQuest(story.getSingleQuest(Integer.parseInt(move)), myClass.getChosenClass());
+        questHandler.executeQuest(story.getSingleQuest(Integer.parseInt(move)), chosenClass.getChosenClass());
     }
 
 }

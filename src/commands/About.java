@@ -18,7 +18,7 @@ public class About implements ICommand{
 
     @Override
     public void executeCommand() {
-        System.out.println("\nThis game is an RPG style dungeon crawler");
+        System.out.println("This game is an RPG style dungeon crawler");
         System.out.println("It is currently in development");
         System.out.println("Made by Kasper Sylvest Worm");
         System.out.println("All code for the game will be made available,");
@@ -27,7 +27,7 @@ public class About implements ICommand{
         System.out.println("but give credit where credit is due.");
         System.out.println("If you need help. write !help");
         System.out.println("for a list of commands,");
-        System.out.println("and follow on screen insctructions");
+        System.out.println("and follow on screen instructions");
     }
     
 }

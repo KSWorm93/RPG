@@ -7,59 +7,49 @@ package quests.sidequest;
 
 import enemies.IEnemy;
 import enemies.SkeletonWarrior;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 import quests.IQuest;
-import quests.moves.IMove;
-import quests.moves.Single;
+import quests.encounters.DialogueEncounter;
+import quests.encounters.Encounter;
+import quests.encounters.IEncounter;
 
 /**
- *
  * @author kasper
  */
 public class RandomEncounter implements IQuest {
 
-    IEnemy random = getRandomEnemy();
+    private IEnemy random = getRandomEnemy();
+    private String questName = "Random Encounter - REPEATABLE";
 
     @Override
     public String questName() {
-        return "Random Encounter - REPEATABLE";
+        return questName;
     }
 
     @Override
-    public List<IEnemy> enemies() {
-        List<IEnemy> enemies = new ArrayList();
+    public List<IEncounter> questDialogue() {
+
+        List<IEncounter> encounters = new ArrayList<>();
+        List<IEnemy> enemies = new ArrayList<>();
         enemies.add(random);
-        return enemies;
-    }
 
-    @Override
-    public List<IMove> questMoves() {
-        List<IMove> moves = new ArrayList();
-        IMove firstMove = new Single(true);
-        IMove secondMove = new Single(false);
+        encounters.add(new DialogueEncounter(
+                "You have started the quest: " + questName,
+                "Prepare to face your foes!"));
+        encounters.add(new Encounter(true, enemies));
+        encounters.add(new DialogueEncounter(
+                "Phew, tough one",
+                "Quest is done"));
 
-        moves.add(firstMove);
-        moves.add(secondMove);
-        return moves;
-    }
-
-    @Override
-    public List<String> questDialogue() {
-        List<String> dialogue = new ArrayList();
-        String first = "\nThis is a random enxounter. Defeat " + random.name() + " to get rewards";
-        String second = "\nYou did it! You defeated the " + random.name() + "!"
-                + "\nMove forward to exit combat";
-
-        dialogue.add(first);
-        dialogue.add(second);
-
-        return dialogue;
+        return encounters;
     }
 
     private IEnemy getRandomEnemy() {
-        ArrayList<IEnemy> randomEnemies = new ArrayList();
+        ArrayList<IEnemy> randomEnemies = new ArrayList<>();
         randomEnemies.add(new SkeletonWarrior());
 
         return randomEnemies.get(new Random().nextInt(randomEnemies.size()));
@@ -71,8 +61,7 @@ public class RandomEncounter implements IQuest {
     }
 
     @Override
-    public List<IQuest> questUnlocks() {
-        return null;
+    public int experienceReward() {
+        return 20;
     }
-
 }

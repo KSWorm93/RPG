@@ -7,65 +7,47 @@ package quests.classquest.warrior;
 
 import enemies.IEnemy;
 import enemies.SkeletonWarrior;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import quests.IQuest;
-import quests.moves.IMove;
-import quests.moves.Single;
+import quests.encounters.DialogueEncounter;
+import quests.encounters.Encounter;
+import quests.encounters.IEncounter;
 
 /**
- *
  * @author kasper
  */
 public class WarriorIntro implements IQuest {
 
+    private String questName = "Class tutorial - Warrior";
+
     @Override
     public String questName() {
-        return "Class tutorial for the Warrior";
+        return questName;
     }
 
     @Override
-    public List<IEnemy> enemies() {
-        List<IEnemy> enemies = new ArrayList();
-        IEnemy skelWarrior = new SkeletonWarrior();
+    public List<IEncounter> questDialogue() {
+        List<IEncounter> encounters = new ArrayList<>();
+        List<IEnemy> enemies = new ArrayList<>();
+        enemies.add(new SkeletonWarrior());
 
-        enemies.add(skelWarrior);
+        encounters.add(new DialogueEncounter(
+                "You have started the quest: " + questName,
+                "You will here learn how to defeat enemies"));
+        encounters.add(new Encounter(true, enemies));
+        encounters.add(new DialogueEncounter(
+                "Phew, tough one!",
+                "You have vanquished your foe!"));
 
-        return enemies;
-    }
-
-    @Override
-    public List<IMove> questMoves() {
-        List<IMove> moves = new ArrayList();
-        IMove firstMove = new Single(true);
-        IMove secondMove = new Single(false);
-
-        moves.add(firstMove);
-        moves.add(secondMove);
-        return moves;
-    }
-
-    @Override
-    public List<String> questDialogue() {
-        List<String> dialogue = new ArrayList();
-        String first = "\nIn this tutorial you will learn to fight off enemies";
-        String second = "\nYou did it! You defeated the Skeleton Warrior!"
-                + "\nMove forward to exit combat";
-
-        dialogue.add(first);
-        dialogue.add(second);
-
-        return dialogue;
+        return encounters;
     }
 
     @Override
     public IQuest questInstance() {
         return new WarriorIntro();
-    }
-
-    @Override
-    public List<IQuest> questUnlocks() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

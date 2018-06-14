@@ -6,11 +6,10 @@
 package character.classes;
 
 import character.item.Weapon;
-import character.Stat;
+import character.stats.Stat;
 import character.abilities.IAbility;
 import character.item.IItem;
 import java.util.List;
-import java.util.Set;
 
 /**
  *

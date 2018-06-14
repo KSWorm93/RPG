@@ -5,7 +5,7 @@
  */
 package utils;
 
-import character.Stat;
+import character.stats.Stat;
 import character.abilities.IAbility;
 import character.item.IItem;
 import commands.ICommand;
@@ -18,13 +18,23 @@ import quests.IQuest;
  */
 public class PrintHelper {
 
+
+    /**
+     * Prints the given message to the console.
+     *
+     * @param msg message to print.
+     */
+    public void print(String msg){
+        System.out.println(msg);
+    }
+
     /**
      * Helper method to print users stats out.
      *
      * @param stats list of stats
      */
     public void printClassStats(List<Stat> stats) {
-        System.out.println("\nThese are the stats for your class.");
+        System.out.println("These are the stats for your class.");
         for (Stat stat : stats) {
             System.out.println(stat.getStatName() + ": " + stat.getStatValue());
         }
@@ -36,7 +46,7 @@ public class PrintHelper {
      * @param stats list of stats
      */
     public void printClassStatsWithNums(List<Stat> stats) {
-        System.out.println("\nThese are the stats for your class, with their current value.");
+        System.out.println("These are the stats for your class, with their current value.");
         int index = 0;
         for (Stat stat : stats) {
             System.out.println(index++ + ": " + stat.getStatName() + ": " + stat.getStatValue());
@@ -49,9 +59,9 @@ public class PrintHelper {
      * @param abilities list of abilities
      */
     public void printClassAbilities(List<IAbility> abilities) {
-        System.out.println("\nThese are all your available abilities");
+        System.out.println("These are all your available abilities");
         for (IAbility ability : abilities) {
-            System.out.println(ability.getName() + " Type: " + ability.getType() + " Cost: " + ability.getCost());
+            System.out.println(ability.getName() + "- Type: " + ability.getType() + " - Cost: " + ability.getCost());
         }
     }
 
@@ -62,7 +72,7 @@ public class PrintHelper {
      * @param inventory users inventory
      */
     public void printCombatOptions(List<IAbility> abilities, List<IItem> inventory) {
-        System.out.println("\nThese are your options");
+        System.out.println("These are your options");
         int index = 0;
         for (IAbility ability : abilities) {
             System.out.println(index++ + ": " + ability.getName() + " Type: " + ability.getType() + " Cost: " + ability.getCost());
@@ -75,7 +85,7 @@ public class PrintHelper {
      * @param inventory
      */
     public void printInventory(List<IItem> inventory) {
-        System.out.println("\nThese are your options");
+        System.out.println("These are your options");
         int index = 0;
         for (IItem item : inventory) {
             System.out.println(index++ + ": " + item.name() + " Type: " + item.type() + " Cost: " + item.cost());
@@ -88,7 +98,7 @@ public class PrintHelper {
      * @param commands
      */
     public void printAvailableCommands(List<ICommand> commands) {
-        System.out.println("\nThese are the avaiblable commands");
+        System.out.println("These are the available commands");
         for (ICommand command : commands) {
             System.out.println(command.commandName());
         }
@@ -105,18 +115,18 @@ public class PrintHelper {
     }
 
     /**
-     * Prints available quests
+     * Prints available Quests
      *
      * @param quests
      */
     public void printAvailableQuests(List<IQuest> quests) {
-        System.out.println("\nThese are your available Quests");
+        System.out.println("These are your available Quests");
         int index = 0;
         for (IQuest quest : quests) {
             System.out.println(index + ": " + quest.questName());
             index++;
         }
-        System.out.println("Write the given number to start the quest.");
+        System.out.println("\nWrite the given number to start the quest.");
     }
 
 }

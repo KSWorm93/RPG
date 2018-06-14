@@ -18,3 +18,6 @@ only reward specific weapons
 choose at startup - upgradeable weapons?? 
 
 Main menu - able to start new game or load existing
+
+
+Github wiki page - info about game, classes, features, tips etc.

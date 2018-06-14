@@ -17,8 +17,8 @@ public class Tip implements ICommand {
     private String[] tips = new String[]{
         "Quests ending with \"REPEATABLE\" can be done multiple times, and give rewards each time.",
         "You can do multiple actions each turn, as long as you have ability points left.",
-        "Intro quests are a good place to start your journey.",
-        "Class quests will provide you with new skills.",
+        "Introduction Quests are a good place to start your journey.",
+        "Class Quests will provide you with new skills.",
         "If you die during combat, there is no going back, you will begin from last save"
     };
 

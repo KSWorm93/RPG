@@ -8,27 +8,40 @@ package quests;
 import character.abilities.IAbility;
 import character.item.IItem;
 import enemies.IEnemy;
+
 import java.util.List;
-import quests.moves.IMove;
+
+import quests.encounters.IEncounter;
 
 /**
- *
  * @author kasper
  */
 public interface IQuest {
-    public String questName();
-    public List<IEnemy> enemies();
-    public List<IMove> questMoves();
-    public List<String> questDialogue();
-    public IQuest questInstance();
-    public List<IQuest> questUnlocks();
-    default public IItem itemReward(){
+    String questName();
+
+    List<IEncounter> questDialogue();
+
+    IQuest questInstance();
+
+    default List<IQuest> questUnlocks() {
         return null;
     }
-    default public IAbility abilityReward(){
+
+    //TODO - Make rewards LIST of rewards
+    //TODO   - Multiple rewards each quest
+    default IItem itemReward() {
         return null;
     }
-    default public String statReward(){
+
+    default IAbility abilityReward() {
         return null;
+    }
+
+    default String statReward() {
+        return null;
+    }
+
+    default int experienceReward() {
+        return 10;
     }
 }
