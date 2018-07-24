@@ -1,56 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7e5820d-b69f-4209-ac93-87f9522f9922" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/RPG.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/abilities/CommonAbility.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/abilities/DefensiveAbility.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/abilities/IAbility.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/abilities/OffensiveAbility.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/classes/IClass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/classes/Rogue.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/classes/Warrior.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/classes/Wizard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/item/IItem.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/item/Potion.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/item/Weapon.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/About.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/ClassInformation.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/Exit.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/Help.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/ICommand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/LoadGame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/SaveGame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/Tip.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/enemies/IEnemy.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/enemies/SkeletonWarrior.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/quests/IQuest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/quests/classquest/rogue/RogueIntro.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/quests/classquest/warrior/WarriorIntro.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/quests/sidequest/RandomEncounter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/runner/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/ClassHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/CleanOutputHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/CombatHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/CommandHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/FileReader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/LevelUpHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/PrintHelper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/QuestHandler.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/StoryHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RPG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RPG.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/config.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" />
-    </list>
+    <list default="true" id="d7e5820d-b69f-4209-ac93-87f9522f9922" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,7 +142,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="13" y="31" width="1894" height="1036" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32915717" />
@@ -200,7 +150,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.32915717" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32915717" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15621622" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
