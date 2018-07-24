@@ -1,51 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="RPG:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="60522182-226c-42fd-9899-7505f0cee3f7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RPG_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/character/stats/StatType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/quests/encounters/DialogueEncounter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/quests/encounters/Encounter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/quests/encounters/IEncounter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/quests/intro/Quests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ideas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ideas.txt" afterDir="false" />
+    <list default="true" id="d7e5820d-b69f-4209-ac93-87f9522f9922" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/RPG.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/abilities/CommonAbility.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/abilities/DefensiveAbility.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/abilities/IAbility.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/abilities/OffensiveAbility.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/classes/IClass.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/classes/Rogue.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/classes/Warrior.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/classes/Wizard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/item/IItem.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/item/Potion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/character/item/Weapon.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/About.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/ClassInformation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/Exit.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/Help.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/ICommand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/LoadGame.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/SaveGame.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/commands/Tip.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/enemies/IEnemy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/enemies/SkeletonWarrior.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/quests/IQuest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/quests/classquest/rogue/RogueIntro.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/quests/classquest/warrior/WarriorIntro.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/quests/sidequest/RandomEncounter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/runner/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/ClassHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/CleanOutputHelper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/CombatHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/CommandHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/FileReader.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/LevelUpHelper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/PrintHelper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/QuestHandler.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/production/RPG/utils/StoryHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RPG.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/private/private.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/Stat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/stats/Stat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/classes/IClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/classes/IClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/classes/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/classes/Rogue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/classes/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/classes/Warrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/classes/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/classes/Wizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/About.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/Tip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/Tip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enemies/SkeletonWarrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enemies/SkeletonWarrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/IQuest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quests/IQuest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/classquest/rogue/RogueIntro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quests/classquest/rogue/RogueIntro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/classquest/warrior/WarriorIntro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quests/classquest/warrior/WarriorIntro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/intro/Intro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/intro/IntroAbilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quests/intro/Abilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/intro/IntroItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quests/intro/Items.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/intro/IntroStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quests/intro/Stats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/moves/Duo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/moves/IMove.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/moves/Single.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/moves/Triple.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/sidequest/RandomEncounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quests/sidequest/RandomEncounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/runner/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/ClassHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/ClassHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/CombatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/CombatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/LevelUpHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/LevelUpHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/PrintHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/PrintHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/QuestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/QuestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/StoryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/StoryHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,88 +59,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/runner/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="70" column="55" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuestHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/QuestHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+            <state relative-caret-position="460">
+              <caret line="38" column="46" lean-forward="true" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/runner/GameHandler.java" />
-        <option value="$PROJECT_DIR$/src/utils/ClassHandler.java" />
-        <option value="$PROJECT_DIR$/src/enemies/IEnemy.java" />
-        <option value="$PROJECT_DIR$/src/quests/moves/IMove.java" />
-        <option value="$PROJECT_DIR$/src/utils/LevelUpHelper.java" />
-        <option value="$PROJECT_DIR$/src/utils/StoryHandler.java" />
-        <option value="$PROJECT_DIR$/src/quests/moves/DialogueEncounter.java" />
-        <option value="$PROJECT_DIR$/src/quests/moves/Encounter.java" />
-        <option value="$PROJECT_DIR$/src/quests/moves/IEncounter.java" />
-        <option value="$PROJECT_DIR$/src/character/classes/IClass.java" />
-        <option value="$PROJECT_DIR$/src/quests/encounters/Encounter.java" />
-        <option value="$PROJECT_DIR$/src/quests/encounters/DialogueEncounter.java" />
-        <option value="$PROJECT_DIR$/src/utils/CombatHandler.java" />
-        <option value="$PROJECT_DIR$/src/character/stats/Stat.java" />
-        <option value="$PROJECT_DIR$/src/character/stats/StatType.java" />
-        <option value="$PROJECT_DIR$/src/character/classes/Warrior.java" />
-        <option value="$PROJECT_DIR$/src/quests/intro/IntroAbilities.java" />
-        <option value="$PROJECT_DIR$/src/quests/intro/Intro.java" />
-        <option value="$PROJECT_DIR$/src/quests/intro/quests.java" />
-        <option value="$PROJECT_DIR$/src/quests/intro/Quests.java" />
-        <option value="$PROJECT_DIR$/src/quests/sidequest/RandomEncounter.java" />
-        <option value="$PROJECT_DIR$/src/quests/intro/Abilities.java" />
-        <option value="$PROJECT_DIR$/src/quests/intro/Items.java" />
-        <option value="$PROJECT_DIR$/src/quests/encounters/IEncounter.java" />
-        <option value="$PROJECT_DIR$/src/quests/IQuest.java" />
-        <option value="$PROJECT_DIR$/src/quests/classquest/warrior/WarriorIntro.java" />
-        <option value="$PROJECT_DIR$/src/quests/classquest/rogue/RogueIntro.java" />
-        <option value="$PROJECT_DIR$/src/commands/About.java" />
-        <option value="$PROJECT_DIR$/src/commands/Tip.java" />
-        <option value="$PROJECT_DIR$/src/quests/intro/Stats.java" />
-        <option value="$PROJECT_DIR$/src/utils/PrintHelper.java" />
-        <option value="$PROJECT_DIR$/src/utils/QuestHandler.java" />
-        <option value="$PROJECT_DIR$/src/runner/Main.java" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="13" />
-    <option name="y" value="20" />
+    <option name="y" value="31" />
     <option name="width" value="1894" />
-    <option name="height" value="1047" />
+    <option name="height" value="1036" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -152,12 +101,6 @@
               <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
               <item name="RPG" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="character" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="runner" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -165,14 +108,15 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="extract.method.default.visibility" value="private" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/RPG.iml" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="IntelliLang.Advanced" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -217,9 +161,27 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
     </configuration>
     <recent_temporary>
       <list>
@@ -227,394 +189,40 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="60522182-226c-42fd-9899-7505f0cee3f7" name="Default" comment="" />
-      <created>1528828370137</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1528828370137</updated>
-    </task>
-    <servers />
-  </component>
   <component name="ToolWindowManager">
-    <frame x="13" y="20" width="1894" height="1047" extended-state="0" />
+    <frame x="13" y="31" width="1894" height="1036" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32915717" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32946146" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.32900432" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.32915717" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="7" weight="0.32900432" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49947202" visible="true" weight="0.12756757" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286638" />
-      <window_info id="Structure" order="1" sideWeight="0.500528" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15621622" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" x="0" y="0" width="423" height="847" id="Documentation" side_tool="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/quests/intro/Quests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/character/classes/Warrior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1845">
-          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/character/stats/StatType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#160#161#0" expanded="true" />
-            <element signature="e#199#200#0" expanded="true" />
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#258#259#0" expanded="true" />
-            <element signature="e#298#299#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#446#447#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#615#616#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/sidequest/RandomEncounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/StoryHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/QuestHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="135" column="20" lean-forward="true" selection-start-line="135" selection-start-column="20" selection-end-line="135" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/sidequest/RandomEncounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/FileReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/GameHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/utils/ClassHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="53" column="14" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/moves/Duo.java" />
-    <entry file="file://$PROJECT_DIR$/src/utils/LevelUpHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-45">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/moves/Single.java" />
-    <entry file="file://$PROJECT_DIR$/src/enemies/IEnemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enemies/SkeletonWarrior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/character/classes/IClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/CleanOutputHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/character/stats/StatType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="60" lean-forward="true" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
-          <folding>
-            <element signature="e#160#161#0" expanded="true" />
-            <element signature="e#199#200#0" expanded="true" />
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#258#259#0" expanded="true" />
-            <element signature="e#298#299#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#414#415#0" expanded="true" />
-            <element signature="e#446#447#0" expanded="true" />
-            <element signature="e#479#480#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#615#616#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/character/item/Weapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/character/stats/Stat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/StoryHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="59" lean-forward="true" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/encounters/DialogueEncounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/character/classes/Warrior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1425">
-          <caret line="32" column="23" lean-forward="true" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/sidequest/RandomEncounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/IQuest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/classquest/rogue/RogueIntro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/encounters/Encounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/encounters/IEncounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/CombatHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/ClassInformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/Exit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/Help.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/Tip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/intro/Items.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="e#1831#1832#0" expanded="true" />
-            <element signature="e#1909#1910#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/intro/Abilities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/ICommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/commands/About.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="29" column="64" lean-forward="true" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/CommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/PrintHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="128" column="30" selection-start-line="128" selection-start-column="30" selection-end-line="128" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/intro/Stats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/intro/Quests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/quests/classquest/warrior/WarriorIntro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="33" column="49" lean-forward="true" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/QuestHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RPG.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ideas.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/runner/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="70" column="55" selection-start-line="70" selection-start-column="55" selection-end-line="70" selection-end-column="55" />
+        <state relative-caret-position="460">
+          <caret line="38" column="46" lean-forward="true" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -660,7 +268,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -686,17 +294,6 @@
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
           <last-edited>RPG</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>
