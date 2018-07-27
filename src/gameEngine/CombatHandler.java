@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utils;
+package gameEngine;
 
 import character.classes.IClass;
 import enemies.IEnemy;
+import utils.CleanOutputHelper;
+import utils.PrintHelper;
 
 import java.util.List;
 import java.util.Scanner;
@@ -18,13 +20,17 @@ import java.util.Scanner;
 public class CombatHandler {
 
     private final Scanner scan;
-    private final PrintHelper printer = new PrintHelper();
-    private final CommandHandler commander = new CommandHandler();
-    private final CleanOutputHelper cleaner = new CleanOutputHelper();
+    private final PrintHelper printer;
+    private final CommandHandler commander;
+    private final CleanOutputHelper cleaner;
     private final String hp = "Health Points";
 
-    public CombatHandler(Scanner scan) {
+
+    public CombatHandler(Scanner scan, PrintHelper printer, CleanOutputHelper cleaner, CommandHandler commander) {
         this.scan = scan;
+        this.printer = printer;
+        this.cleaner = cleaner;
+        this.commander = commander;
     }
 
     /**
@@ -54,8 +60,8 @@ public class CombatHandler {
      * @param enemy
      */
     private void enemyTurn(IEnemy enemy) {
-        System.out.println("\nEnemy struck first..");
-        System.out.println("\nEnemy harmed you for: " + enemy.hitYou());
+        printer.print("\nEnemy struck first..");
+        printer.print("\nEnemy harmed you for: " + enemy.hitYou());
     }
 
     /**
@@ -72,10 +78,10 @@ public class CombatHandler {
         if (resetActionPoint > 0) {
             cleaner.clear();
             printHealthPoints(yourClass, enemy);
-            System.out.println("\nYour turn");
+            printer.print("\nYour turn");
             printer.printCombatOptions(yourClass.abilities(), yourClass.inventory());
-            System.out.println("You have " + resetActionPoint + " Ability Points remaining for this turn.");
-            System.out.println(msg);
+            printer.print("You have " + resetActionPoint + " Ability Points remaining for this turn.");
+            printer.print(msg);
             input = scan.next(); // to stop and make user input
 
             if (commander.checkForCommand(String.valueOf(input))) {
@@ -99,8 +105,8 @@ public class CombatHandler {
      * @param enemy
      */
     private void printHealthPoints(IClass yourClass, IEnemy enemy) {
-        System.out.println("Your Health Points are: " + yourClass.getSingleStat(hp).getStatValue());
-        System.out.println("Enemy Health Points are: " + enemy.healthPoints());
+        printer.print("Your Health Points are: " + yourClass.getSingleStat(hp).getStatValue());
+        printer.print("Enemy Health Points are: " + enemy.healthPoints());
     }
 
     /**
@@ -174,7 +180,7 @@ public class CombatHandler {
      */
     private void checkAP(IClass yourClass, int input, int resetActionPoint, IEnemy enemy, int tempMyHP) {
         if (yourClass.abilities().get(input).getCost() > resetActionPoint) {
-            String msg = "\nYou dont have enough Ability Points to do this action\nTry something else";
+            String msg = "\nYou don't have enough Ability Points to do this action\nTry something else";
             yourTurn(yourClass, enemy, tempMyHP, resetActionPoint, msg);
         }
     }

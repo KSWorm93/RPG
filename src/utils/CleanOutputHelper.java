@@ -5,6 +5,8 @@
  */
 package utils;
 
+import gameEngine.CommandHandler;
+
 import java.util.Scanner;
 
 /**
@@ -13,8 +15,15 @@ import java.util.Scanner;
  */
 public class CleanOutputHelper {
 
-    Scanner scan = new Scanner(System.in, "UTF-8");
-    CommandHandler commander = new CommandHandler();
+    private Scanner scan;
+    private CommandHandler commander;
+    private PrintHelper printer;
+
+    public CleanOutputHelper(Scanner scan, CommandHandler commander, PrintHelper printer) {
+        this.scan = scan;
+        this.commander = commander;
+        this.printer = printer;
+    }
 
     /**
      * Wait for user to press enter
@@ -42,13 +51,13 @@ public class CleanOutputHelper {
      * Wait until user has pressed enter
      */
     private void waitEnter() {
-        System.out.println("\nPress enter to continue.");
+        printer.print( "\nPress enter to continue.");
         String enter;
         enter = scan.nextLine();
 
         while (!enter.equals("")) {
             checkForCommand(enter);
-            System.out.println("\nPlease press enter.");
+            printer.print("\nPlease press enter.");
             enter = scan.nextLine();
         }
     }
@@ -63,7 +72,7 @@ public class CleanOutputHelper {
             if (os.contains("Windows")) {
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             } else {
-                System.out.print("\033[H\033[2J");
+                printer.print("\033[H\033[2J");
                 System.out.flush();
             }
         } catch (final Exception e) {

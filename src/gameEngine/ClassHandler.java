@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utils;
+package gameEngine;
 
 import character.stats.Stat;
 import character.classes.IClass;
 import character.classes.Rogue;
 import character.classes.Warrior;
 import character.classes.Wizard;
+import utils.LevelUpHelper;
+
 import java.util.List;
 
 /**

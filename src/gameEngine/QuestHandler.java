@@ -3,29 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utils;
+package gameEngine;
 
 import character.classes.IClass;
 import enemies.IEnemy;
 
 import java.util.List;
-import java.util.Scanner;
 
 import quests.IQuest;
 import quests.encounters.IEncounter;
+import utils.CleanOutputHelper;
+import utils.PrintHelper;
 
 /**
  * @author kasper
  */
 public class QuestHandler {
 
-    private final Scanner scan;
     private final StoryHandler story;
-    private final CleanOutputHelper cleaner = new CleanOutputHelper();
+    private final CleanOutputHelper cleaner;
+    private final PrintHelper printer;
+    private final CombatHandler combatant;
 
-    public QuestHandler(Scanner scan, StoryHandler story) {
-        this.scan = scan;
+    public QuestHandler(StoryHandler story, PrintHelper printer, CleanOutputHelper cleaner, CombatHandler combatant) {
         this.story = story;
+        this.printer = printer;
+        this.cleaner = cleaner;
+        this.combatant = combatant;
     }
 
     /**
@@ -51,8 +55,8 @@ public class QuestHandler {
             if (encounter.encounter()) {
                 combatMove(encounter.enemies(), encounter, chosenClass);
             } else {
-                System.out.println(encounter.beforeDialogue());
-                System.out.println(encounter.afterDialogue());
+                printer.print(encounter.beforeDialogue());
+                printer.print(encounter.afterDialogue());
             }
             cleaner.waitClear();
         }
@@ -70,15 +74,13 @@ public class QuestHandler {
      * @param chosenClass player selected class
      */
     private void combatMove(List<IEnemy> enemies, IEncounter encounter, IClass chosenClass) {
-        CombatHandler combatant = new CombatHandler(scan);
-
         //TODO - Move those dialogue options to combatant?
         for (IEnemy enemy : enemies) {
-            System.out.println(encounter.beforeDialogue());
-            System.out.println("I am the mighty " + enemy.name());
+            printer.print(encounter.beforeDialogue());
+            printer.print("I am the mighty " + enemy.name());
             //TODO - Check startCombat() for matching dialogues
             combatant.startCombat(chosenClass, enemy, encounter.encounterSwearing());
-            System.out.println(encounter.afterDialogue());
+            printer.print(encounter.afterDialogue());
         }
     }
 }

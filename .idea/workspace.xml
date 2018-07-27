@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7e5820d-b69f-4209-ac93-87f9522f9922" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/character/abilities/IAbility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/abilities/IAbility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/classes/IClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/classes/IClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/character/item/IItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/character/item/IItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commands/ICommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/ICommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enemies/IEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enemies/IEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/quests/IQuest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/quests/IQuest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gameEngine/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/ClassInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/ClassInformation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Help.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/Help.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/runner/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/runner/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/ClassHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameEngine/ClassHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/CleanOutputHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/CleanOutputHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/CombatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameEngine/CombatHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameEngine/CommandHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/QuestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameEngine/QuestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/StoryHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gameEngine/StoryHandler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,16 +28,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/runner/Main.java">
+      <file leaf-file-name="GameEngine.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gameEngine/GameEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+            <state relative-caret-position="184">
+              <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2114#3014#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sout</find>
+      <find>printer</find>
+      <find>system</find>
+      <find>system.out</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,7 +72,13 @@
         <option value="$PROJECT_DIR$/src/commands/ICommand.java" />
         <option value="$PROJECT_DIR$/src/enemies/IEnemy.java" />
         <option value="$PROJECT_DIR$/src/quests/IQuest.java" />
+        <option value="$PROJECT_DIR$/src/utils/ClassHandler.java" />
+        <option value="$PROJECT_DIR$/src/utils/CleanOutputHelper.java" />
+        <option value="$PROJECT_DIR$/src/utils/CombatHandler.java" />
+        <option value="$PROJECT_DIR$/src/utils/QuestHandler.java" />
         <option value="$PROJECT_DIR$/src/runner/Main.java" />
+        <option value="$PROJECT_DIR$/src/engine/GameEngine.java" />
+        <option value="$PROJECT_DIR$/src/gameEngine/GameEngine.java" />
       </list>
     </option>
   </component>
@@ -87,66 +116,13 @@
               <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
               <item name="RPG" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="character" type="462c0819:PsiDirectoryNode" />
+              <item name="gameEngine" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
               <item name="RPG" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="character" type="462c0819:PsiDirectoryNode" />
-              <item name="abilities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="character" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="character" type="462c0819:PsiDirectoryNode" />
-              <item name="item" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="character" type="462c0819:PsiDirectoryNode" />
-              <item name="stats" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="enemies" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="quests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RPG" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="quests" type="462c0819:PsiDirectoryNode" />
-              <item name="classquest" type="462c0819:PsiDirectoryNode" />
+              <item name="runner" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RPG" type="b2602c69:ProjectViewProjectNode" />
@@ -162,6 +138,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="printer&#9;PSI&#9;JAVA://com.sun.tools.javac.code.Printer&#10;thistext&#9;null&#9;null" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/RPG.iml" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -251,7 +228,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32915717" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16270271" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16270271" />
+      <window_info anchor="bottom" auto_hide="true" id="Find" order="1" weight="0.32915717" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49886104" weight="0.24972972" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -263,7 +241,6 @@
       <window_info anchor="bottom" id="Messages" order="7" weight="0.32915717" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -278,6 +255,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
           <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#4686#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -302,31 +282,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/PrintHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2484">
-          <caret line="119" column="20" lean-forward="true" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/enemies/SkeletonWarrior.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/ClassHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-107">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/CommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -389,10 +348,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="jrt:///usr/lib/jvm/java-10-openjdk!/jdk.compiler/com/sun/tools/javac/code/Printer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameEngine/ClassHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#644#645#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameEngine/CombatHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameEngine/CommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameEngine/QuestHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameEngine/StoryHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/runner/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        <state relative-caret-position="322">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#4686#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/LevelUpHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-774">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/PrintHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="119" column="20" lean-forward="true" selection-start-line="119" selection-start-column="20" selection-end-line="119" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/CleanOutputHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1449">
+          <caret line="71" column="41" lean-forward="true" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#666#667#0" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gameEngine/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="43" lean-forward="true" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2114#3014#0" />
+          </folding>
         </state>
       </provider>
     </entry>

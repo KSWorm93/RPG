@@ -5,7 +5,7 @@
  */
 package commands;
 
-import utils.ClassHandler;
+import gameEngine.ClassHandler;
 import utils.PrintHelper;
 
 /**
