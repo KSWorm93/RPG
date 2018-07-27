@@ -70,6 +70,14 @@ public class Main {
     //TODO - Character class - Containing other elements?
     //TODO -    Like abilities, classType, items, stats
     //TODO -    Give name, age, eye colour, hair colour, etc??
+    //TODO - Add professions - crafting, gather, fish, sculpture, blacksmith etc.
+    //TODO - Move 'Handlers* to game engine folder
+    //TODO - make 'Helpers' independent
+    //TODO -    Pull handlers/helpers to seperate projects, and load via interfaces
+    //TODO - main quest limits, 10 quest to unlock
+    //TODO - Make a setting menu, save as config file
+    //TODO - Refactor quests to use csv files/arrays other instead of classes?
+
 
     /**
      * Gives the user inputs for character creation
