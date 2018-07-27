@@ -20,46 +20,47 @@ public class GameEngine {
         printHelper = new PrintHelper();
         commandHandler = new CommandHandler();
         storyHandler = new StoryHandler();
-        cleanOutput = new CleanOutputHelper(scan, commandHandler, printHelper);
+        cleanOutput = new CleanOutputHelper(scan, printHelper);
         combatHandler = new CombatHandler(scan, printHelper, cleanOutput, commandHandler);
         levelUpHelper = new LevelUpHelper(printHelper, scan);
         classHandler = new ClassHandler(levelUpHelper);
-        questHandler = new QuestHandler(storyHandler, printHelper, cleanOutput, combatHandler);
+        questHandler = new QuestHandler(storyHandler, printHelper, cleanOutput, combatHandler, commandHandler);
 
 
         commandHandler.initCommands();
         commandHandler.executeCommand("!about");
 
-        cleanOutput.waitClear();
+        cleanOutput.waitClear(commandHandler);
 
         characterCreation();
         runGame();
     }
 
-    //TODO - Make classes for all names of potions, stats, items, etc?
-    //TODO - JavaDoc on all methods
-    //TODO - Use printHelper instead of sout
-    //TODO - Fix helpers generating own instances
+    //TODO - Feat - Make classes for all names of potions, stats, items, etc?
+    //TODO - Fix  - commands getting overwritten
+    //TODO - Docs - JavaDoc on all methods
+    //TODO - Feat - Use printHelper instead of sout
+    //TODO - Fix  - helpers generating own instances
     //TODO -    Use ones from main instead, dependency injection
-    //TODO - Fix comments around the project
+    //TODO - Fix  - comments around the project
     //TODO -    No need to specify its a method or helper..
-    //TODO - Error handling all around.
-    //TODO - Add some more of the commands
-    //TODO - Add file save/load
-    //TODO - User interaction helper - to handle check move/command
-    //TODO - Difficulty storyHandler starts - Quests and stats
-    //TODO - Stat trainers - Quest with specific combat, based on stat
-    //TODO - Check quest repeats - unlocks, and difficulty - Helper class?
-    //TODO - Character class - Containing other elements?
+    //TODO - Feat - Error handling all around.
+    //TODO - Feat - Add some more of the commands
+    //TODO - Feat - Add file save/load
+    //TODO - Feat - User interaction helper - to handle check move/command
+    //TODO - Feat - Difficulty helper class
+    //TODO - Feat - storyHandler starts - Quests and stats
+    //TODO - Feat - Stat trainers - Quest with specific combat, based on stat
+    //TODO - Feat - Check quest repeats - unlocks
+    //TODO - Feat - Character class - Containing other elements?
     //TODO -    Like abilities, classType, items, stats
     //TODO -    Give name, age, eye colour, hair colour, etc??
-    //TODO - Add professions - crafting, gather, fish, sculpture, blacksmith etc.
-    //TODO - Move 'Handlers* to game gameEngine folder
-    //TODO - make 'Helpers' independent
+    //TODO - Feat - Professions - crafting, gather, fish, sculpture, blacksmith etc.
+    //TODO - Fix  - make 'Helpers' independent
     //TODO -    Pull handlers/helpers to seperate projects, and load via interfaces
-    //TODO - main quest limits, 10 quest to unlock
-    //TODO - Make a setting menu, save as config file
-    //TODO - Refactor quests to use csv files/arrays other instead of classes?
+    //TODO - Feat - main quest limits, 10 quest to unlock
+    //TODO - Feat - Make a setting menu, save as config file
+    //TODO - Fix  - Refactor quests to use csv files/arrays other instead of classes?
 
     /**
      * Gives the user inputs for character creation
@@ -77,11 +78,11 @@ public class GameEngine {
 
         storyHandler.initClassStoryline(classHandler.getChosenClass());
 
-        cleanOutput.waitClear();
+        cleanOutput.waitClear(commandHandler);
         printHelper.printClassStats(classHandler.getChosenClass().stats());
-        cleanOutput.waitClear();
+        cleanOutput.waitClear(commandHandler);
         printHelper.printClassAbilities(classHandler.getChosenClass().abilities());
-        cleanOutput.waitForEnter();
+        cleanOutput.waitForEnter(commandHandler);
     }
 
     /**
@@ -112,7 +113,7 @@ public class GameEngine {
             cleanOutput.clear();
             printHelper.print(input + " was registered\n");
             commandHandler.executeCommand(input);
-            cleanOutput.waitForEnter();
+            cleanOutput.waitForEnter(commandHandler);
         } else if (input.matches("\\d+")) {
             checkMove(input);
         } else {
