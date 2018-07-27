@@ -11,8 +11,8 @@ package enemies;
  */
 public interface IEnemy {
     
-    public void hit(int dmg);
-    public int hitYou();
-    public int healthPoints();
-    public String name();
+    void hit(int dmg);
+    int hitYou();
+    int healthPoints();
+    String name();
 }

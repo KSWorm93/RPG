@@ -11,24 +11,15 @@ package character.abilities;
  */
 public interface IAbility {
 
-    public String getType();
-
-    public void setType(String type);
-
-    public String getName();
-
-    public void setName(String name);
-
-    public int getCost();
-
-    public void setCost(int cost);
-    
-    public int getTier();
-    
-    public void setTier(int tier);
-    
-    public int getValue();
-    
-    public void setValue(int value);
+    String getType();
+    void setType(String type);
+    String getName();
+    void setName(String name);
+    int getCost();
+    void setCost(int cost);
+    int getTier();
+    void setTier(int tier);
+    int getValue();
+    void setValue(int value);
 
 }

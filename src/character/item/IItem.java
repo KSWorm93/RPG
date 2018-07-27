@@ -10,7 +10,7 @@ package character.item;
  * @author kasper
  */
 public interface IItem {
-    public String name();
-    public String type();
-    public int cost();
+    String name();
+    String type();
+    int cost();
 }

@@ -11,8 +11,7 @@ package commands;
  */
 public interface ICommand {
     
-    public String commandName();
-    
-    public void executeCommand();
+    String commandName();
+    void executeCommand();
     
 }

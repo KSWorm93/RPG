@@ -52,7 +52,6 @@ public class Main {
         runGame();
     }
 
-    //TODO - Fix interfaces, no need for public
     //TODO - Make classes for all names of potions, stats, items, etc?
     //TODO - JavaDoc on all methods
     //TODO - Use printer instead of sout

@@ -20,27 +20,21 @@ public interface IQuest {
     String questName();
 
     List<IEncounter> questDialogue();
-
     IQuest questInstance();
-
     default List<IQuest> questUnlocks() {
         return null;
     }
-
     //TODO - Make rewards LIST of rewards
     //TODO   - Multiple rewards each quest
     default IItem itemReward() {
         return null;
     }
-
     default IAbility abilityReward() {
         return null;
     }
-
     default String statReward() {
         return null;
     }
-
     default int experienceReward() {
         return 10;
     }
