@@ -10,26 +10,41 @@ import gameEngine.CommandHandler;
 import java.util.Scanner;
 
 /**
- *
  * @author kasper
  */
 public class CleanOutputHelper {
 
-    private Scanner scan;
-    private CommandHandler commander;
-    private PrintHelper printer;
+    private Scanner scan = new Scanner(System.in, "UTF-8");
 
-    public CleanOutputHelper(Scanner scan, CommandHandler commander, PrintHelper printer) {
-        this.scan = scan;
-        this.commander = commander;
-        this.printer = printer;
+    /**
+     * Wait for user to press enter
+     *
+     * @param commandHandler If wanting to check if input is a command
+     */
+    public void waitForEnter(CommandHandler commandHandler) {
+        System.out.println("\nPress enter to continue.");
+        String enter;
+        enter = scan.nextLine();
+
+        while (!enter.equals("")) {
+            checkForCommand(enter, commandHandler);
+            System.out.println("\nPlease press enter.");
+            enter = scan.nextLine();
+        }
     }
 
     /**
      * Wait for user to press enter
      */
     public void waitForEnter() {
-        waitEnter();
+        System.out.println("\nPress enter to continue.");
+        String enter;
+        enter = scan.nextLine();
+
+        while (!enter.equals("")) {
+            System.out.println("\nPlease press enter.");
+            enter = scan.nextLine();
+        }
     }
 
     /**
@@ -40,7 +55,17 @@ public class CleanOutputHelper {
     }
 
     /**
-     * calls both waitForEnter() and clear()
+     * Waits until user presses 'Enter/Return' and then clears the screen
+     *
+     * @param commandHandler If wanting to check if input is a command
+     */
+    public void waitClear(CommandHandler commandHandler) {
+        waitForEnter(commandHandler);
+        clearScreen();
+    }
+
+    /**
+     * Waits until user presses 'Enter/Return' and then clears the screen
      */
     public void waitClear() {
         waitForEnter();
@@ -49,15 +74,30 @@ public class CleanOutputHelper {
 
     /**
      * Wait until user has pressed enter
+     * Checks if input is a command
      */
-    private void waitEnter() {
-        printer.print( "\nPress enter to continue.");
+    private void waitEnter(CommandHandler commandHandler) {
+        System.out.println("\nPress enter to continue.");
         String enter;
         enter = scan.nextLine();
 
         while (!enter.equals("")) {
-            checkForCommand(enter);
-            printer.print("\nPlease press enter.");
+            checkForCommand(enter, commandHandler);
+            System.out.println("\nPlease press enter.");
+            enter = scan.nextLine();
+        }
+    }
+
+    /**
+     * Wait until user has pressed enter
+     */
+    private void waitEnter() {
+        System.out.println("\nPress enter to continue.");
+        String enter;
+        enter = scan.nextLine();
+
+        while (!enter.equals("")) {
+            System.out.println("\nPlease press enter.");
             enter = scan.nextLine();
         }
     }
@@ -72,7 +112,7 @@ public class CleanOutputHelper {
             if (os.contains("Windows")) {
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             } else {
-                printer.print("\033[H\033[2J");
+                System.out.println("\033[H\033[2J");
                 System.out.flush();
             }
         } catch (final Exception e) {
@@ -82,12 +122,12 @@ public class CleanOutputHelper {
 
     /**
      * Check in input is a command
-     * @param input 
+     *
+     * @param input
      */
-    private void checkForCommand(String input) {
-        if (commander.checkForCommand(input)) {
-            commander.executeCommand(input);
+    private void checkForCommand(String input, CommandHandler commandHandler) {
+        if (commandHandler.checkForCommand(input)) {
+            commandHandler.executeCommand(input);
         }
     }
-
 }
